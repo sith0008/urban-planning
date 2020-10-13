@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 	. "github.com/urban-planning/knowledge-graph/accessor/api"
 	. "github.com/urban-planning/knowledge-graph/accessor/impl"
@@ -9,9 +11,9 @@ import (
 // TODO add neo4j configs
 const (
 	DB_Host     = "127.0.0.1"
-	DB_Port     = "3306"
-	DB_Username = "user"
-	DB_Password = "password"
+	DB_Port     = "7687"
+	DB_Username = "neo4j"
+	DB_Password = "neo4j"
 )
 
 type KnowledgeGraphComponent struct {
@@ -38,7 +40,8 @@ func InitialiseDBSession(dbHost string, dbPort string, dbUsername string, dbPass
 		err     error
 	)
 
-	if driver, err = neo4j.NewDriver(dbHost+"+"+dbPort, neo4j.BasicAuth(dbUsername, dbPassword, "")); err != nil {
+	if driver, err = neo4j.NewDriver("bolt://"+dbHost+"+"+dbPort, neo4j.BasicAuth(dbUsername, dbPassword, "")); err != nil {
+		log.Fatalln("[ERROR]: Connection failure")
 		return nil, nil, err
 	}
 	if session, err = driver.Session(neo4j.AccessModeWrite); err != nil {

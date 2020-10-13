@@ -12,16 +12,16 @@ const (
 )
 
 func CreateHandlers(router *mux.Router) error {
-	// c, err := NewKnowledgeGraphComponent()
-	// if err != nil {
-	// 	return err
-	// }
+	c, err := NewKnowledgeGraphComponent()
+	if err != nil {
+		return err
+	}
 	router.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		response := "status ok"
 		log.Printf("[INFO]: %s", response)
 		w.Write([]byte(response))
 	}).Methods("GET")
-	// router.HandleFunc("/getCases", c.GetCases)
+	router.HandleFunc("/getCases", c.GetCases)
 
 	return nil
 }
