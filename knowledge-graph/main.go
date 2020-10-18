@@ -21,8 +21,10 @@ func CreateHandlers(router *mux.Router) error {
 		log.Printf("[INFO]: %s", response)
 		w.Write([]byte(response))
 	}).Methods("GET")
-	router.HandleFunc("/getCases", c.GetCases)
-
+	router.HandleFunc("/getCases", c.GetCases).Methods("GET")
+	router.HandleFunc("/upsertCase", c.UpsertCase).Methods("POST")
+	router.HandleFunc("/removeCase", c.RemoveCase).Methods("POST")
+	router.HandleFunc("/getSimilarCases", c.GetSimilarCases).Methods("POST")
 	return nil
 }
 
