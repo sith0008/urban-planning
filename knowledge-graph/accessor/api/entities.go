@@ -1,6 +1,7 @@
 package api
 
 type Case struct {
+	Use string
 }
 type Outcome struct {
 }
