@@ -1,4 +1,4 @@
-package api
+package er
 
 type Relation interface {
 	GetType() RelationType

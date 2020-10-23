@@ -1,4 +1,4 @@
-package entity
+package er
 
 type SpecificUseClass string
 

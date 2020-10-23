@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	. "github.com/sith0008/urban-planning/knowledge-graph/accessor/api"
+	. "github.com/sith0008/urban-planning/knowledge-graph/er"
 )
 
 // router.HandleFunc("/getCases", c.GetCases)
@@ -24,7 +24,7 @@ func (c *KnowledgeGraphComponent) UpsertCase(w http.ResponseWriter, r *http.Requ
 		// TODO: handle error
 	}
 	pastCase := Case{
-		Use: req["use"].(string),
+		ProposedUseDesc: req["use"].(string),
 	}
 	result, err := c.Accessor.UpsertCase(pastCase)
 	if err != nil {
