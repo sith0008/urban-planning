@@ -32,7 +32,9 @@ func (accessor *DBAccessorImpl) UpsertCase(pastCase Case) (string, error) {
 		log.Fatal(err)
 	}
 	result, err := tx.Run("CREATE (c:Case) SET c.use = $use RETURN c.use + ', from node ' + id(c)",
-		map[string]interface{}{"use": pastCase.Use})
+		map[string]interface{}{
+			"use": pastCase.ProposedUseDesc,
+		})
 	if err != nil {
 		log.Println(err)
 		return "", err
