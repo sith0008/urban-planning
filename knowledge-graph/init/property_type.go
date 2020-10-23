@@ -1,8 +1,21 @@
 package main
 
-type SpecificPropType struct {
-	Name string
+type SpecificPropType string
+
+const (
+	SpecificPropType_Business1 SpecificPropType = "Business1"
+)
+
+var SpecificPropTypes = []SpecificPropType{
+	SpecificPropType_Business1,
 }
-type GenericPropType struct {
-	Name string
+
+type GenericPropType string
+
+const (
+	GenericPropType_Industrial GenericPropType = "Industrial"
+)
+
+var GenericPropTypes = []GenericPropType{
+	GenericPropType_Industrial,
 }

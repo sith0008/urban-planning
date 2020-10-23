@@ -19,17 +19,17 @@ func main() {
 	if err != nil {
 		// TODO: handle error
 	}
-	err = InitialiseUseClass(dbSession)
+	err = InitialiseUseClass(dbSession, SpecificUseClasses, GenericUseClasses)
 	if err != nil {
 		// TODO: handle error
 	}
-	err = InitialisePropType(dbSession)
+	err = InitialisePropType(dbSession, SpecificPropTypes, GenericPropTypes)
 	if err != nil {
 		// TODO: handle error
 	}
 }
 
-func InitialiseUseClass(dbSession neo4j.Session) error {
+func InitialiseUseClass(dbSession neo4j.Session, specifics []SpecificUseClass, generics []GenericUseClass) error {
 	tx, err := dbSession.BeginTransaction()
 	result, err := tx.Run("CREATE (c:Case) SET c.use = $use RETURN c.use + ', from node ' + id(c)",
 		map[string]interface{}{})
@@ -44,7 +44,7 @@ func InitialiseUseClass(dbSession neo4j.Session) error {
 	return nil
 }
 
-func InitialisePropType(dbSession neo4j.Session) error {
+func InitialisePropType(dbSession neo4j.Session, specifics []SpecificPropType, generics []GenericPropType) error {
 	tx, err := dbSession.BeginTransaction()
 	result, err := tx.Run("CREATE (c:Case) SET c.use = $use RETURN c.use + ', from node ' + id(c)",
 		map[string]interface{}{})
