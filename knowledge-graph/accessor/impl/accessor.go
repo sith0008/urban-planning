@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/neo4j/neo4j-go-driver/neo4j"
-	. "github.com/urban-planning/knowledge-graph/accessor/api"
+	. "github.com/sith0008/urban-planning/knowledge-graph/accessor/api"
 )
 
 type DBAccessorImpl struct {
@@ -31,8 +31,8 @@ func (accessor *DBAccessorImpl) UpsertCase(pastCase Case) (string, error) {
 		log.Println("[ERROR]: failed to start transaction")
 		log.Fatal(err)
 	}
-	result , err := tx.Run("CREATE (c:Case) SET c.use = $use RETURN c.use + ', from node ' + id(c)",
-		map[string]interface{}{"use":pastCase.Use})
+	result, err := tx.Run("CREATE (c:Case) SET c.use = $use RETURN c.use + ', from node ' + id(c)",
+		map[string]interface{}{"use": pastCase.Use})
 	if err != nil {
 		log.Println(err)
 		return "", err

@@ -1,4 +1,4 @@
-module github.com/urban-planning/knowledge-graph
+module github.com/sith0008/urban-planning
 
 go 1.14
 

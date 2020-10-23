@@ -4,8 +4,8 @@ import (
 	"log"
 
 	"github.com/neo4j/neo4j-go-driver/neo4j"
-	. "github.com/urban-planning/knowledge-graph/accessor/api"
-	. "github.com/urban-planning/knowledge-graph/accessor/impl"
+	. "github.com/sith0008/urban-planning/knowledge-graph/accessor/api"
+	. "github.com/sith0008/urban-planning/knowledge-graph/accessor/impl"
 )
 
 // TODO add neo4j configs
