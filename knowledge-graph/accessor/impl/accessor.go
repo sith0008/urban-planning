@@ -5,6 +5,7 @@ import (
 
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 	. "github.com/sith0008/urban-planning/knowledge-graph/accessor/api"
+	. "github.com/sith0008/urban-planning/knowledge-graph/entity"
 )
 
 type DBAccessorImpl struct {
