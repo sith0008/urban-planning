@@ -35,8 +35,9 @@ func (accessor *DBAccessorImpl) UpsertCase(c Case) (int64, error) {
 		return 0, err
 	}
 
-	insertCaseResult, err := tx.Run("CREATE (c:Case) SET c.proposed_use = $proposedUse, c.GFA = $GFA, c.decision = $decision, c.evaluation = $evaluation RETURN id(c)",
+	insertCaseResult, err := tx.Run("CREATE (c:Case) SET c.case_id = %caseId, c.proposed_use = $proposedUse, c.GFA = $GFA, c.decision = $decision, c.evaluation = $evaluation RETURN id(c)",
 		map[string]interface{}{
+			"caseId":      c.Id,
 			"proposedUse": c.ProposedUseDesc,
 			"GFA":         c.GFA,
 			"decision":    c.Decision,
@@ -166,6 +167,58 @@ func (accessor *DBAccessorImpl) ClearDatabase() error {
 	}
 	tx.Commit()
 	return nil
+}
+
+func (accessor *DBAccessorImpl) UpsertCaseUseClassRelation(caseId int64, specifcUseClass SpecificUseClass) (int64, error) {
+	tx, err := accessor.DBSession.BeginTransaction()
+	if err != nil {
+		log.Println("[ERROR]: failed to start transaction")
+		log.Fatal(err)
+		return 0, err
+	}
+	insertCaseUseClassRelationResult, err := tx.Run("MATCH (c:Case), (s:SpecificUseClass) WHERE id(c) = $caseId AND s.name = $proposedUseClass CREATE (c)-[r:HAS_USE_CLASS]->(s) RETURN id(r)",
+		map[string]interface{}{
+			"caseId":           caseId,
+			"proposedUseClass": specifcUseClass,
+		})
+	if err != nil {
+		log.Println("[ERROR]: failed to insert HAS_USE_CLASS relation")
+		log.Println(err)
+		return 0, err
+	}
+	var caseUseClassRelationId int64
+	if insertCaseUseClassRelationResult.Next() {
+		caseUseClassRelationId = insertCaseUseClassRelationResult.Record().GetByIndex(0).(int64)
+		log.Printf("[INFO] Inserted case-uc relation: %d", caseUseClassRelationId)
+	}
+	tx.Commit()
+	return caseUseClassRelationId, nil
+}
+
+func (accessor *DBAccessorImpl) UpsertLocationPropTypeRelation(locationId int64, specificPropType SpecificPropType) (int64, error) {
+	tx, err := accessor.DBSession.BeginTransaction()
+	if err != nil {
+		log.Println("[ERROR]: failed to start transaction")
+		log.Fatal(err)
+		return 0, err
+	}
+	insertLocationPropTypeRelationResult, err := tx.Run("MATCH (l:Location), (s:SpecificPropType) WHERE id(l) = $locationId AND s.name = $propType CREATE (l)-[r:HAS_PROP_TYPE]->(s) RETURN id(r)",
+		map[string]interface{}{
+			"locationId": locationId,
+			"propType":   specificPropType,
+		})
+	if err != nil {
+		log.Println("[ERROR]: failed to insert HAS_PROP_TYPE relation")
+		log.Println(err)
+		return 0, err
+	}
+	var locationPropTypeRelationId int64
+	if insertLocationPropTypeRelationResult.Next() {
+		locationPropTypeRelationId = insertLocationPropTypeRelationResult.Record().GetByIndex(0).(int64)
+		log.Printf("[INFO] Inserted location-pt relation: %d", locationPropTypeRelationId)
+	}
+	tx.Commit()
+	return locationPropTypeRelationId, nil
 }
 
 // GetCases() []Case
