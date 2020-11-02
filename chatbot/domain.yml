@@ -1,0 +1,133 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+intents:
+- inform
+- affirm
+- greet
+- out_of_scope
+- goodbye
+- deny
+- bot_challenge
+- thankyou
+- start_form
+- use_class
+
+entities:
+# - exercise
+# - out_of_scope
+# - sleep
+# - stress
+# - street
+# - building
+# - postal
+# - out_of_scope
+# - unit
+- use_class
+
+
+
+slots:
+  use_class:
+    type: unfeaturized
+  use_desc:
+    type: unfeaturized
+  gfa:
+    type: unfeaturized
+  postal:
+    type: unfeaturized
+  lotnum:
+    type: unfeaturized
+  floor:
+    type: unfeaturized
+  unit:
+    type: unfeaturized
+
+
+
+  # confirm_building:
+  #   type: unfeaturized
+  #   # influence_conversations: false
+  # street:
+  #   type: unfeaturized
+  #   # influence_conversation: false
+  # building:
+  #   type: unfeaturized
+  #   # influence_conversation: false
+  # unit:
+  #   type: unfeaturized
+  #   # influence_conversation: false
+  # postal:
+  #   type: unfeaturized
+    # influence_conversation: false
+  # requested_slot:
+  #   type: text
+    # influence_conversation: false
+  # sleep:
+  #   type: unfeaturized
+  #   influence_conversation: false
+  # stress:
+  #   type: unfeaturized
+  #   influence_conversation: false
+
+responses:
+  utter_greet:
+  - text: Hi! This chatbot will help you answer questions about change of use. Which of the following are you interested in? 
+    buttons: 
+      - title: "Change of use"
+        payload: "/start_form"
+      - title: "Ask a question"
+        payload: "/URA_question"
+
+  utter_goodbye:
+  - text: See you again! 
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+
+  utter_ask_use_class:
+  - text: What will be the proposed use class?
+    buttons:
+    - title: "Use class 1"
+      payload: '/use_class {"use_class": "uc1"}'
+    - title: "Use class 2"
+      payload: '/use_class {"use_class": "uc2"}'
+    - title: "Use class 3"
+      payload: '/use_class {"use_class": "uc3"}'
+
+  utter_ask_use_desc:
+  - text: Ok, thanks. What is the proposed use description? 
+  utter_ask_gfa:
+  - text: What's the gross floor area?
+  utter_ask_postal:
+  - text: Ok, i will now need to ask about where this location is. What is the postal code?
+  utter_ask_lotnum:
+  - text: What is the lot number?
+  utter_ask_floor:
+  - text: Which floor is it on?
+  utter_ask_unit:
+  - text: Which unit?
+
+
+
+  utter_slots_values:
+  - text: "You've submitted the following:\n
+            - Proposed use class: {use_class}\n
+            - Proposed use description: {use_desc}\n
+            - Gross floor area: {gfa}\n
+            - Postal code: {postal}\n
+            - Lot Number: {lotnum}\n
+            - Floor: {floor}\n
+            - Unit: {unit}"
+  
+  utter_no_worries:
+  - text: No problem :)
+  utter_ask_continue:
+  - text: Sorry, I don't quite understand. Do you want to continue?
+  
+actions:
+- utter_goodbye
+- utter_greet
+- utter_slots_values
+forms:
+  cou_form: {}
+version: '2.0'
