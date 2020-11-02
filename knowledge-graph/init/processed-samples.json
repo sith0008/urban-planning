@@ -1,0 +1,53 @@
+[
+    {
+        "case": {
+            "id": "ES20180102R0182",
+            "proposedUseClass": "Massage Establishment",
+            "proposedUseDesc": "Change of use from shop to massage establishment",
+            "gfa": 23.54,
+            "decision": "WP",
+            "evaluation": "EVALUATION DESCRIPTION ..."
+        },
+        "location": {
+            "postalCode": 218202,
+            "lot": "00351L",
+            "floor": 1,
+            "unit": 1,
+            "propertyType": "Commercial"
+        }
+    },
+    {
+        "case": {
+            "id": "ES20180102R0183",
+            "proposedUseClass": "Restaurant",
+            "proposedUseDesc": "Change of use from shop to restaurant",
+            "gfa": 12.24,
+            "decision": "WP",
+            "evaluation": "EVALUATION DESCRIPTION ..."
+        },
+        "location": {
+            "postalCode": 218203,
+            "lot": "00352L",
+            "floor": 1,
+            "unit": 1,
+            "propertyType": "Residential"
+        }
+    },
+    {
+        "case": {
+            "id": "ES20180102R0184",
+            "proposedUseClass": "Massage Establishment",
+            "proposedUseDesc": "Change of use from shop to massage establishment",
+            "gfa": 173.52,
+            "decision": "WP",
+            "evaluation": "EVALUATION DESCRIPTION ..."
+        },
+        "location": {
+            "postalCode": 218204,
+            "lot": "00353L",
+            "floor": 1,
+            "unit": 1,
+            "propertyType": "Residential/Institution"
+        }
+    }
+]
