@@ -25,12 +25,21 @@ func (c *KnowledgeGraphComponent) UpsertCase(w http.ResponseWriter, r *http.Requ
 		// TODO: handle error
 	}
 	pastCase := Case{
+		Id:              req["caseId"].(string),
 		ProposedUseDesc: req["use"].(string),
 		GFA:             req["GFA"].(float64),
+		Decision:        req["decision"].(string),
+		Evaluation:      req["evaluation"].(string),
 	}
 	location := Location{
-		PostalCode: req["postalCode"].(float64),
+		PostalCode: req["postalCode"].(string),
+		LotNumber:  req["lot"].(string),
+		Floor:      req["floor"].(int64),
+		Unit:       req["unit"].(int64),
 	}
+	specificUseClass := req["proposedUseClass"].(SpecificUseClass)
+	specificPropType := req["propertyType"].(SpecificPropType)
+
 	caseId, err := c.Accessor.UpsertCase(pastCase)
 	if err != nil {
 		// TODO: handle error
@@ -41,12 +50,22 @@ func (c *KnowledgeGraphComponent) UpsertCase(w http.ResponseWriter, r *http.Requ
 		// TODO: handle error
 		log.Println(err)
 	}
-	relationId, err := c.Accessor.UpsertCaseLocRelation(caseId, locationId)
+	_, err = c.Accessor.UpsertCaseLocRelation(caseId, locationId)
 	if err != nil {
 		// TODO: handle error
 		log.Println(err)
 	}
-	json.NewEncoder(w).Encode(&relationId)
+	_, err = c.Accessor.UpsertCaseUseClassRelation(caseId, specificUseClass)
+	if err != nil {
+		// TODO: handle error
+		log.Println(err)
+	}
+	_, err = c.Accessor.UpsertLocationPropTypeRelation(locationId, specificPropType)
+	if err != nil {
+		// TODO: handle error
+		log.Println(err)
+	}
+	json.NewEncoder(w).Encode(&caseId)
 }
 
 func (c *KnowledgeGraphComponent) RemoveCase(w http.ResponseWriter, r *http.Request) {
