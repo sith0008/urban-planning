@@ -8,7 +8,7 @@
 				"appType": "DACU",
 				"projDesc": "PROPOSED CHANGE OF USE ...",
 				"subNum": {
-					"subDate":"180512",
+					"subDate":"180512"
 				},
 				"decType":"WP",
 				"decDate":"25-May-2012",
@@ -19,7 +19,7 @@
 				"appType": "DACU",
 				"projDesc": "PROPOSED CHANGE OF USE ...",
 				"subNum": {
-					"subDate":"180515",
+					"subDate":"180515"
 				},
 				"decType":"WP",
 				"decDate":"25-May-2015",
@@ -59,7 +59,7 @@
 			"planning_area_desc":"KALLANG",
 			"conservation_area_code":null,
 			"conservation_area_desc":null,
-			"cu_same_site_last_6mths":null,
+			"cu_same_site_last_6mths":null
 		},
 		"mukim_ts_info":{
 			"mukim_ts":{
@@ -86,7 +86,7 @@
 		},
 		"proposal_details_info":{
 			"proposal_description":"Change of Use of ___ to ____",
-			"retention_of_structure":null,
+			"retention_of_structure":null
 		},
 		"change_of_use_info":{
 			"cu_for_site_address":{
