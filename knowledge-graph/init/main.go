@@ -71,8 +71,9 @@ func InitialiseSampleData(dbSession neo4j.Session, cases []ProcessedCaseLocation
 	}
 	for _, c := range cases {
 		// insert case
-		insertCaseResult, err := tx.Run("CREATE (c:Case) SET c.proposed_use = $proposedUse, c.GFA = $GFA, c.decision = $decision, c.evaluation = $evaluation RETURN id(c)",
+		insertCaseResult, err := tx.Run("CREATE (c:Case) SET c.case_id = $caseId, c.proposed_use = $proposedUse, c.GFA = $GFA, c.decision = $decision, c.evaluation = $evaluation RETURN id(c)",
 			map[string]interface{}{
+				"caseId":      c.Case.Id,
 				"proposedUse": c.Case.ProposedUseDesc,
 				"GFA":         c.Case.GFA,
 				"decision":    c.Case.Decision,
@@ -100,7 +101,7 @@ func InitialiseSampleData(dbSession neo4j.Session, cases []ProcessedCaseLocation
 			return err
 		}
 		var caseUseClassRelationId int64
-		if insertCaseResult.Next() {
+		if insertCaseUseClassRelationResult.Next() {
 			caseUseClassRelationId = insertCaseUseClassRelationResult.Record().GetByIndex(0).(int64)
 			log.Printf("[INFO] Inserted case-uc relation: %d", caseUseClassRelationId)
 		}
@@ -144,12 +145,12 @@ func InitialiseSampleData(dbSession neo4j.Session, cases []ProcessedCaseLocation
 			return err
 		}
 		var locationPropTypeRelationId int64
-		if insertCaseResult.Next() {
+		if insertLocationPropTypeRelationResult.Next() {
 			locationPropTypeRelationId = insertLocationPropTypeRelationResult.Record().GetByIndex(0).(int64)
 			log.Printf("[INFO] Inserted location-pt relation: %d", locationPropTypeRelationId)
 		}
 		// insert case-location relation
-		insertRelationResult, err := tx.Run("MATCH (c:Case),(l:Location) WHERE id(c) = $caseId AND id(l) = $locationId CREATE (c)-[r:LOCATED_IN]->(l) RETURN id(r)",
+		insertCaseLocationRelationResult, err := tx.Run("MATCH (c:Case),(l:Location) WHERE id(c) = $caseId AND id(l) = $locationId CREATE (c)-[r:LOCATED_IN]->(l) RETURN id(r)",
 			map[string]interface{}{
 				"caseId":     caseId,
 				"locationId": locationId,
@@ -159,10 +160,10 @@ func InitialiseSampleData(dbSession neo4j.Session, cases []ProcessedCaseLocation
 			log.Println(err)
 			return err
 		}
-		var relationId int64
-		if insertRelationResult.Next() {
-			relationId = insertRelationResult.Record().GetByIndex(0).(int64)
-			log.Printf("[INFO] Inserted LOCATED_IN relation: %d", relationId)
+		var caseLocationRelationId int64
+		if insertCaseLocationRelationResult.Next() {
+			caseLocationRelationId = insertCaseLocationRelationResult.Record().GetByIndex(0).(int64)
+			log.Printf("[INFO] Inserted LOCATED_IN relation: %d", caseLocationRelationId)
 
 		} else {
 			log.Println("[WARN] Cannot find match")
