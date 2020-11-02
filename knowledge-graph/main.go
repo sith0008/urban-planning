@@ -23,8 +23,10 @@ func CreateHandlers(router *mux.Router) error {
 	}).Methods("GET")
 	router.HandleFunc("/getCases", c.GetCases).Methods("GET")
 	router.HandleFunc("/upsertCase", c.UpsertCase).Methods("POST")
-	router.HandleFunc("/removeCase", c.RemoveCase).Methods("POST")
+	router.HandleFunc("/removeCase", c.RemoveCase).Methods("DELETE")
+	router.HandleFunc("/removeLocation", c.RemoveLocation).Methods("DELETE")
 	router.HandleFunc("/getSimilarCases", c.GetSimilarCases).Methods("POST")
+	router.HandleFunc("/clearDatabase", c.ClearDatabase).Methods("DELETE")
 	return nil
 }
 
