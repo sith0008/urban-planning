@@ -1,7 +1,7 @@
 package er
 
 type Case struct {
-	Id              int64
+	Id              string
 	ProposedUseDesc string
 	GFA             float64
 	Decision        string
