@@ -14,7 +14,7 @@ type DBAccessor interface {
 	RemoveCase(caseId int64) error
 	RemoveLocation(locationId int64) error
 	ClearDatabase() error
-	GetSimilarCases(query Query) []QueryResponse
+	// GetSimilarCases(query Query) []QueryResponse
 	// UpsertRelation(nodeOne int64, nodeTwo int64, relationType RelationType)
 	// RemoveRelation(nodeOne int64, nodeTwo int64, relationType RelationType)
 }
