@@ -9,7 +9,7 @@
             "evaluation": "EVALUATION DESCRIPTION ..."
         },
         "location": {
-            "postalCode": 218202,
+            "postalCode": "218202",
             "lot": "00351L",
             "floor": 1,
             "unit": 1,
@@ -26,7 +26,7 @@
             "evaluation": "EVALUATION DESCRIPTION ..."
         },
         "location": {
-            "postalCode": 218203,
+            "postalCode": "218203",
             "lot": "00352L",
             "floor": 1,
             "unit": 1,
@@ -43,7 +43,7 @@
             "evaluation": "EVALUATION DESCRIPTION ..."
         },
         "location": {
-            "postalCode": 218204,
+            "postalCode": "218204",
             "lot": "00353L",
             "floor": 1,
             "unit": 1,
