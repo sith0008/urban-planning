@@ -1,6 +1,7 @@
 package impl
 
 import (
+	"errors"
 	"fmt"
 	"log"
 
@@ -34,8 +35,7 @@ func (accessor *DBAccessorImpl) UpsertCase(c Case) (int64, error) {
 		log.Fatal(err)
 		return 0, err
 	}
-
-	insertCaseResult, err := tx.Run("CREATE (c:Case) SET c.case_id = %caseId, c.proposed_use = $proposedUse, c.GFA = $GFA, c.decision = $decision, c.evaluation = $evaluation RETURN id(c)",
+	insertCaseResult, err := tx.Run("CREATE (c:Case) SET c.case_id = $caseId, c.proposed_use = $proposedUse, c.GFA = $GFA, c.decision = $decision, c.evaluation = $evaluation RETURN id(c)",
 		map[string]interface{}{
 			"caseId":      c.Id,
 			"proposedUse": c.ProposedUseDesc,
@@ -66,9 +66,11 @@ func (accessor *DBAccessorImpl) UpsertLocation(location Location) (int64, error)
 		return 0, err
 	}
 
-	insertLocationResult, err := tx.Run("CREATE (l:Location) SET l.postalCode = $postalCode RETURN id(l)",
+	insertLocationResult, err := tx.Run("CREATE (l:Location) SET l.postalCode = $postalCode, l.floor = $floor, l.unit = $unit RETURN id(l)",
 		map[string]interface{}{
 			"postalCode": location.PostalCode,
+			"floor":      location.Floor,
+			"unit":       location.Unit,
 		})
 	if err != nil {
 		log.Println("[ERROR]: failed to insert location")
@@ -221,9 +223,110 @@ func (accessor *DBAccessorImpl) UpsertLocationPropTypeRelation(locationId int64,
 	return locationPropTypeRelationId, nil
 }
 
-// GetCases() []Case
-// UpsertCase(pastCase Case) int64, error
-// RemoveCase(caseId int64)
-// UpsertLocation(location Location) int64
+func (accessor *DBAccessorImpl) GetSimilarCases(query QueryRequest) ([]QueryResponse, error) {
+	tx, err := accessor.DBSession.BeginTransaction()
+	if err != nil {
+		log.Println("[ERROR]: failed to start transaction")
+		log.Fatal(err)
+		return []QueryResponse{}, err
+	}
+	queryResponses := make([]QueryResponse, 0)
+	getPropTypeResult, err := tx.Run("MATCH (l:Location)--(p:SpecificPropType)--(gp:GenericPropType) WHERE l.postalCode = $postalCode AND l.floor = $floor AND l.unit = $unit RETURN p.name, gp.name",
+		map[string]interface{}{
+			"postalCode": query.PostalCode,
+			"floor":      query.Floor,
+			"unit":       query.Unit,
+		})
+	if err != nil {
+		log.Println("[ERROR]: failed to retrieve propType")
+		log.Println(err)
+		return []QueryResponse{}, err
+	}
+	var specificPropType SpecificPropType
+	var genericPropType GenericPropType
+	if getPropTypeResult.Next() {
+		specificPropType = SpecificPropType(getPropTypeResult.Record().GetByIndex(0).(string))
+		genericPropType = GenericPropType(getPropTypeResult.Record().GetByIndex(1).(string))
+	} else {
+		log.Printf("[ERROR] Location with postal code: %s, floor: %d, unit: %d does not exist", query.PostalCode, query.Floor, query.Unit)
+		err = errors.New("LocationError")
+		return []QueryResponse{}, err
+	}
+
+	getGenericUseClassResult, err := tx.Run("MATCH (su:SpecificUseClass)--(gu:GenericUseClass) WHERE su.name = $specificUseClass RETURN gu.name",
+		map[string]interface{}{
+			"specificUseClass": query.ProposedUseClass,
+		})
+	if err != nil {
+		log.Println("[ERROR]: failed to retrieve genericUseClass")
+		log.Println(err)
+		return []QueryResponse{}, err
+	}
+	var genericUseClass GenericUseClass
+	if getGenericUseClassResult.Next() {
+		genericUseClass = GenericUseClass(getGenericUseClassResult.Record().GetByIndex(0).(string))
+	}
+
+	// get similar cases
+	statement := `
+	MATCH (c:Case)--(l:Location)--(sp:SpecificPropType)--(gp:GenericPropType), 
+	(c:Case)--(su:SpecificUseClass)--(gu:GenericUseClass) 
+	WHERE (sp.name = $specificPropType and su.name = $specificUseClass) 
+	OR (sp.name = $specificPropType and gu.name = $genericUseClass)
+	OR (gp.name = $genericPropType and su.name = $specificUseClass)
+	OR (gp.name = $genericPropType and gu.name = $genericUseClass)
+	RETURN c.case_id, c.proposed_use, c.decision, c.evaluation, c.GFA, 
+	l.postalCode, l.floor, l.unit, sp.name, gp.name, su.name, gu.name
+	`
+	getSimilarCasesResult, err := tx.Run(statement,
+		map[string]interface{}{
+			"specificPropType": specificPropType,
+			"genericPropType":  genericPropType,
+			"specificUseClass": query.ProposedUseClass,
+			"genericUseClass":  genericUseClass,
+		})
+	if err != nil {
+		log.Println("[ERROR]: failed to retrieve similar cases")
+		log.Println(err)
+		return []QueryResponse{}, err
+	}
+	for getSimilarCasesResult.Next() {
+		caseId := getSimilarCasesResult.Record().GetByIndex(0).(string)
+		caseProposedUseDesc := getSimilarCasesResult.Record().GetByIndex(1).(string)
+		caseDecision := getSimilarCasesResult.Record().GetByIndex(2).(string)
+		caseEvaluation := getSimilarCasesResult.Record().GetByIndex(3).(string)
+		caseGFA := getSimilarCasesResult.Record().GetByIndex(4).(float64)
+		casePostalCode := getSimilarCasesResult.Record().GetByIndex(5).(string)
+		caseFloor := getSimilarCasesResult.Record().GetByIndex(6).(int64)
+		caseUnit := getSimilarCasesResult.Record().GetByIndex(7).(int64)
+		caseSP := SpecificPropType(getSimilarCasesResult.Record().GetByIndex(8).(string))
+		caseGP := GenericPropType(getSimilarCasesResult.Record().GetByIndex(9).(string))
+		caseSU := SpecificUseClass(getSimilarCasesResult.Record().GetByIndex(10).(string))
+		caseGU := GenericUseClass(getSimilarCasesResult.Record().GetByIndex(11).(string))
+
+		queryResponses = append(queryResponses, QueryResponse{
+			CaseSpec: Case{
+				Id:              caseId,
+				ProposedUseDesc: caseProposedUseDesc,
+				Decision:        caseDecision,
+				Evaluation:      caseEvaluation,
+				GFA:             caseGFA,
+			},
+			LocationSpec: Location{
+				PostalCode: casePostalCode,
+				Floor:      caseFloor,
+				Unit:       caseUnit,
+			},
+			SpecificPropertyType:     caseSP,
+			GenericPropertyType:      caseGP,
+			ProposedSpecificUseClass: caseSU,
+			ProposedGenericUseClass:  caseGU,
+		})
+	}
+	tx.Commit()
+	return queryResponses, nil
+
+}
+
 // GetSimilarCases(query Query) []Case
 // UpsertRelation(relation Relation) int64
