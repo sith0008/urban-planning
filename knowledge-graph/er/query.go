@@ -1,17 +1,13 @@
 package er
 
-type Query struct {
+type QueryRequest struct {
 	ProposedUseClass SpecificUseClass
 	ProposedUseDesc  string
 	GFA              float64
-	Location         LocationSpec
-}
-
-type LocationSpec struct {
-	PostalCode int64
-	LotNumber  string
-	Floor      int64
-	Unit       int64
+	PostalCode       string
+	LotNumber        string
+	Floor            int64
+	Unit             int64
 }
 
 type QueryResponse struct {

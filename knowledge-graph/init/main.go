@@ -33,7 +33,7 @@ type ProcessedCase struct {
 }
 
 type ProcessedLocation struct {
-	PostalCode   float64          `json: postalCode`
+	PostalCode   string           `json: postalCode`
 	Lot          string           `json: lot`
 	Floor        int64            `json: floor`
 	Unit         int64            `json: unit`

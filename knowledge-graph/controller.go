@@ -26,19 +26,19 @@ func (c *KnowledgeGraphComponent) UpsertCase(w http.ResponseWriter, r *http.Requ
 	}
 	pastCase := Case{
 		Id:              req["caseId"].(string),
-		ProposedUseDesc: req["use"].(string),
+		ProposedUseDesc: req["proposedUseDesc"].(string),
 		GFA:             req["GFA"].(float64),
 		Decision:        req["decision"].(string),
 		Evaluation:      req["evaluation"].(string),
 	}
 	location := Location{
 		PostalCode: req["postalCode"].(string),
-		LotNumber:  req["lot"].(string),
-		Floor:      req["floor"].(int64),
-		Unit:       req["unit"].(int64),
+		LotNumber:  req["lotNumber"].(string),
+		Floor:      int64(req["floor"].(float64)),
+		Unit:       int64(req["unit"].(float64)),
 	}
-	specificUseClass := req["proposedUseClass"].(SpecificUseClass)
-	specificPropType := req["propertyType"].(SpecificPropType)
+	specificUseClass := SpecificUseClass(req["proposedUseClass"].(string))
+	specificPropType := SpecificPropType(req["propertyType"].(string))
 
 	caseId, err := c.Accessor.UpsertCase(pastCase)
 	if err != nil {
@@ -103,6 +103,23 @@ func (c *KnowledgeGraphComponent) RemoveLocation(w http.ResponseWriter, r *http.
 }
 
 func (c *KnowledgeGraphComponent) GetSimilarCases(w http.ResponseWriter, r *http.Request) {
+	var req map[string]interface{}
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		// TODO: handle error
+		log.Fatal(err)
+	}
+	query := QueryRequest{
+		ProposedUseClass: SpecificUseClass(req["proposedUseClass"].(string)),
+		ProposedUseDesc:  req["proposedUseDesc"].(string),
+		GFA:              req["GFA"].(float64),
+		PostalCode:       req["postalCode"].(string),
+		LotNumber:        req["lotNumber"].(string),
+		Floor:            int64(req["floor"].(float64)),
+		Unit:             int64(req["unit"].(float64)),
+	}
+	queryResponses, err := c.Accessor.GetSimilarCases(query)
+	json.NewEncoder(w).Encode(&queryResponses)
 
 }
 
