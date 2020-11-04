@@ -3,13 +3,18 @@ import requests
 def locationSpec(postal, lotnum, floor, unit):
 
     API_key = "Your API Key here"
-    base_url = "http://api.openweathermap.org/data/2.5/weather?"
+    base_url = "http://localhost:8080/getSimilarCases"
     
-    Final_url = base_url + "appid=" + API_key + "&q=" + city + "&units=metric"
-    locSpec_data = requests.post(Final_url).json()
-    
-
+    # Final_url = base_url + "appid=" + API_key + "&q=" + city + "&units=metric"
+    req = {
+        "postalCode":postal,
+        "lotNumber": lotnum,
+        "floor":floor,
+        "unit":unit
+    }
+    response = requests.post(base_url, data=req)
+    print(response)
     # return data depending on how the json looks like
-    return locSpec_data['main']
+    # return locSpec_data['main']
     
 

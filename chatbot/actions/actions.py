@@ -35,6 +35,8 @@ from rasa_sdk.forms import FormAction
 
 from testing import test
 
+from locationSpec import locationSpec
+
 # class HealthForm(FormAction):
 
 #     def name(self):
