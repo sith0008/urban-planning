@@ -33,6 +33,10 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 
+from testing import test
+
+from locationSpec import locationSpec
+
 # class HealthForm(FormAction):
 
 #     def name(self):
@@ -162,4 +166,28 @@ class COUForm(FormAction):
     ) -> List[Dict]:
 
         dispatcher.utter_message("Thanks, great job!")
+
+        use_class = tracker.get_slot("use_class")
+        use_desc = tracker.get_slot("use_desc")
+        gfa = float(tracker.get_slot("gfa"))
+        postal = str(tracker.get_slot("postal"))
+        lotnum = tracker.get_slot("lotnum")
+        floor = int(tracker.get_slot("floor"))
+        unit = int(tracker.get_slot("unit"))
+        
+
+
+        # slot variables are currently in string format. 
+        testresponse = test()
+        dispatcher.utter_message(testresponse)
+        dispatcher.utter_message(" ")
+        
+        locSpec = locationSpec(use_class, use_desc, gfa, postal, lotnum, floor, unit)
+
+        # result_1, result_2 = query(use_class, use_desc, gfa, locSpec)
+        
+        # return whatever i want into the chatbot
+        
+        # dispatcher.utter_message("return whatever ")
+
         return []
