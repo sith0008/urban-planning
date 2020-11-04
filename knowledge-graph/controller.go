@@ -107,8 +107,9 @@ func (c *KnowledgeGraphComponent) GetSimilarCases(w http.ResponseWriter, r *http
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		// TODO: handle error
-		log.Fatal(err)
+		log.Printf("[ERROR]: %s", err)
 	}
+
 	query := QueryRequest{
 		ProposedUseClass: SpecificUseClass(req["proposedUseClass"].(string)),
 		ProposedUseDesc:  req["proposedUseDesc"].(string),
@@ -119,6 +120,7 @@ func (c *KnowledgeGraphComponent) GetSimilarCases(w http.ResponseWriter, r *http
 		Unit:             int64(req["unit"].(float64)),
 	}
 	queryResponses, err := c.Accessor.GetSimilarCases(query)
+	fmt.Println(queryResponses)
 	json.NewEncoder(w).Encode(&queryResponses)
 
 }
