@@ -170,7 +170,7 @@ class COUForm(FormAction):
         use_class = tracker.get_slot("use_class")
         use_desc = tracker.get_slot("use_desc")
         gfa = float(tracker.get_slot("gfa"))
-        postal = int(tracker.get_slot("postal"))
+        postal = str(tracker.get_slot("postal"))
         lotnum = tracker.get_slot("lotnum")
         floor = int(tracker.get_slot("floor"))
         unit = int(tracker.get_slot("unit"))
@@ -182,7 +182,7 @@ class COUForm(FormAction):
         dispatcher.utter_message(testresponse)
         dispatcher.utter_message(" ")
         
-        locSpec = locationSpec(postal, lotnum, floor, unit)
+        locSpec = locationSpec(use_class, use_desc, gfa, postal, lotnum, floor, unit)
 
         # result_1, result_2 = query(use_class, use_desc, gfa, locSpec)
         
