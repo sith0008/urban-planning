@@ -1,197 +1,198 @@
-Business_Use_Type,Property_Type,Unit_Zone,Assessment_Criteria
-Restaurant,Shophouses,,Yes
-Restaurant,State Property on Interim Tenancy,,Yes
-Restaurant,HDB Commercial Premises,,Yes
-Restaurant,Commercial Buildings,,Conditional
-Restaurant,Mixed Commercial & Residential Developments,Commercial,Yes
-Restaurant,Mixed Commercial & Residential Developments,Residential,No
+Business_Use_Type,Property_Type,Unit_Zone,Assessment_Criteria,Condition_Name,Condition
+Restaurant,Shophouses,,Yes,,,
+Restaurant,State Property on Interim Tenancy,,No Planning Permission Required
+Restaurant,HDB Commercial Premises,,No Planning Permission Required
+Restaurant,Commercial Buildings,,Conditional(PTA)
+Restaurant,Mixed Commercial & Residential Developments,Commercial,Not Planning Permission Required
+Restaurant,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Restaurant,Civic and Community Institution,,Yes
 Restaurant,Sports & Recreation Buildings,,Yes
 Restaurant,Buildings within Historic Conservation Areas,,Yes
-Restaurant,Industrial Buildings,,No
+Restaurant,Industrial Buildings,,Not Allowed
 Restaurant,Hotel,Commercial,Yes
 Restaurant,Hotel,Hotel,Yes
 Restaurant,Business 1-White Buildings,Commercial,Yes
-Restaurant,Business 1-White Buildings,Industrial,No
+Restaurant,Business 1-White Buildings,Industrial,Not Allowed
 Restaurant,Business 2-White Buildings,Commercial,Yes
-Restaurant,Business 2-White Buildings,Industrial,No
+Restaurant,Business 2-White Buildings,Industrial,Not Allowed
 Bar/Pub,Shophouses,,Yes
 Bar/Pub,State Property on Interim Tenancy,,Yes
 Bar/Pub,HDB Commercial Premises,,Yes
 Bar/Pub,Commercial Buildings,,Conditional
 Bar/Pub,Mixed Commercial & Residential Developments,Commercial,Unlikely
-Bar/Pub,Mixed Commercial & Residential Developments,Residential,No
+Bar/Pub,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Bar/Pub,Civic and Community Institution,,Yes
 Bar/Pub,Sports & Recreation Buildings,,Yes
-Bar/Pub,Buildings within Historic Conservation Areas,,No
-Bar/Pub,Industrial Buildings,,No
+Bar/Pub,Buildings within Historic Conservation Areas,,Not Allowed
+Bar/Pub,Industrial Buildings,,Not Allowed
 Bar/Pub,Business Park,Commercial,Conditional
-Bar/Pub,Business Park,Business Park,No
+Bar/Pub,Business Park,Business Park,Not Allowed
 Bar/Pub,Business 1-White Buildings,Commercial,Yes
-Bar/Pub,Business 1-White Buildings,Industrial,No
+Bar/Pub,Business 1-White Buildings,Industrial,Not Allowed
 Bar/Pub,Business 2-White Buildings,Commercial,Yes
-Bar/Pub,Business 2-White Buildings,Industrial,No
+Bar/Pub,Business 2-White Buildings,Industrial,Not Allowed
 Restaurant and Bar,Shophouses,,Yes
 Restaurant and Bar,State Property on Interim Tenancy,,Yes
 Restaurant and Bar,HDB Commercial Premises,,Yes
 Restaurant and Bar,Commercial Buildings,,Conditional
 Restaurant and Bar,Mixed Commercial & Residential Developments,Commercial,Unlikely
-Restaurant and Bar,Mixed Commercial & Residential Developments,Residential,No
+Restaurant and Bar,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Restaurant and Bar,Civic and Community Institution,,Yes
 Restaurant and Bar,Sports & Recreation Buildings,,Yes
-Restaurant and Bar,Buildings within Historic Conservation Areas,,No
-Restaurant and Bar,Industrial Buildings,,No
+Restaurant and Bar,Buildings within Historic Conservation Areas,,Not Allowed
+Restaurant and Bar,Industrial Buildings,,Not Allowed
 Restaurant and Bar,Hotel,,Yes
 Restaurant and Bar,Business 1-White Buildings,Commercial,Yes
-Restaurant and Bar,Business 1-White Buildings,Industrial,No
+Restaurant and Bar,Business 1-White Buildings,Industrial,Not Allowed
 Restaurant and Bar,Business 2-White Buildings,Commercial,Yes
-Restaurant and Bar,Business 2-White Buildings,Industrial,No
+Restaurant and Bar,Business 2-White Buildings,Industrial,Not Allowed
 Nightclub,Shophouses,,Yes
 Nightclub,State Property on Interim Tenancy,,Yes
 Nightclub,HDB Commercial Premises,,Yes
 Nightclub,Commercial Buildings,,Conditional
 Nightclub,Mixed Commercial & Residential Developments,Commercial,Unlikely
-Nightclub,Mixed Commercial & Residential Developments,Residential,No
+Nightclub,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Nightclub,Civic and Community Institution,,Yes
 Nightclub,Sports & Recreation Buildings,,Yes
-Nightclub,Buildings within Historic Conservation Areas,,No
-Nightclub,Industrial Buildings,,No
+Nightclub,Buildings within Historic Conservation Areas,,Not Allowed
+Nightclub,Industrial Buildings,,Not Allowed
 Nightclub,Business Park,Commercial,Yes
+Nightclub,Business Park,Business Park,Not Allowed
 Nightclub,Business 1-White Buildings,Commercial,Yes
-Nightclub,Business 1-White Buildings,Industrial,No
+Nightclub,Business 1-White Buildings,Industrial,Not Allowed
 Nightclub,Business 2-White Buildings,Commercial,Yes
-Nightclub,Business 2-White Buildings,Industrial,No
+Nightclub,Business 2-White Buildings,Industrial,Not Allowed
 
 Shop,Shophouses,,Yes
 Shop,State Property on Interim Tenancy,,Yes
 Shop,HDB Commercial Premises,,Yes
 Shop,Commercial Buildings,,Yes
 Shop,Mixed Commercial & Residential Developments,Commercial,Yes
-Shop,Mixed Commercial & Residential Developments,Residential,No
+Shop,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Shop,Civic and Community Institution,,Yes
 Shop,Sports & Recreation Buildings,,Yes
 Shop,Buildings within Historic Conservation Areas,,Yes
 Shop,Industrial Buildings,Minimart,Conditional
-Shop,Industrial Buildings,Others,No
+Shop,Industrial Buildings,Others,Not Allowed
 Shop,Hotel,Commercial,Yes
 Shop,Hotel,Hotel,Yes
 Shop,Business 1-White Buildings,Commercial,Yes
-Shop,Business 1-White Buildings,Industrial,No
+Shop,Business 1-White Buildings,Industrial,Not Allowed
 Shop,Business 2-White Buildings,Commercial,Yes
-Shop,Business 2-White Buildings,Industrial,No
+Shop,Business 2-White Buildings,Industrial,Not Allowed
 Laundromat,Shophouses,,Yes
 Laundromat,State Property on Interim Tenancy,,Yes
 Laundromat,HDB Commercial Premises,,Yes
 Laundromat,Commercial Buildings,,Yes
 Laundromat,Mixed Commercial & Residential Developments,Commercial,Yes
-Laundromat,Mixed Commercial & Residential Developments,Residential,No
+Laundromat,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Laundromat,Civic and Community Institution,,Yes
 Laundromat,Sports & Recreation Buildings,,Yes
 Laundromat,Buildings within Historic Conservation Areas,,Yes
-Laundromat,Industrial Buildings,,No
+Laundromat,Industrial Buildings,,Not Allowed
 Laundromat,Hotel,,Yes
 Laundromat,Business 1-White Buildings,Commercial,Yes
-Laundromat,Business 1-White Buildings,Industrial,No
+Laundromat,Business 1-White Buildings,Industrial,Not Allowed
 Laundromat,Business 2-White Buildings,Commercial,Yes
-Laundromat,Business 2-White Buildings,Industrial,No
+Laundromat,Business 2-White Buildings,Industrial,Not Allowed
 Office,Shophouses,,Yes
 Office,State Property on Interim Tenancy,,Yes
 Office,HDB Commercial Premises,,Yes
 Office,Commercial Buildings,,Yes
 Office,Mixed Commercial & Residential Developments,Commercial,Yes
-Office,Mixed Commercial & Residential Developments,Residential,No
+Office,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Office,Civic and Community Institution,,Yes
 Office,Sports & Recreation Buildings,,Yes
 Office,Buildings within Historic Conservation Areas,,Yes
-Office,Industrial Buildings,,No
+Office,Industrial Buildings,,Not Allowed
 Office,Business Park,Commercial,Yes
-Office,Business Park,Business Park,No
+Office,Business Park,Business Park,Not Allowed
 Office,Business 1-White Buildings,Commercial,Yes
-Office,Business 1-White Buildings,Industrial,No
+Office,Business 1-White Buildings,Industrial,Not Allowed
 Office,Business 2-White Buildings,Commercial,Yes
-Office,Business 2-White Buildings,Industrial,No
+Office,Business 2-White Buildings,Industrial,Not Allowed
 Massage Establishment,Shophouses,,Yes
 Massage Establishment,State Property on Interim Tenancy,,Yes
 Massage Establishment,HDB Commercial Premises,,Yes
 Massage Establishment,Commercial Buildings,,Yes
 Massage Establishment,Mixed Commercial & Residential Developments,Commercial,Yes
-Massage Establishment,Mixed Commercial & Residential Developments,Residential,No
+Massage Establishment,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Massage Establishment,Civic and Community Institution,,Yes
 Massage Establishment,Sports & Recreation Buildings,,Yes
-Massage Establishment,Buildings within Historic Conservation Areas,,No
-Massage Establishment,Industrial Buildings,,No
+Massage Establishment,Buildings within Historic Conservation Areas,,Not Allowed
+Massage Establishment,Industrial Buildings,,Not Allowed
 Massage Establishment,Business Park,Commercial,Yes
-Massage Establishment,Business Park,Business Park,No
+Massage Establishment,Business Park,Business Park,Not Allowed
 Massage Establishment,Business 1-White Buildings,Commercial,Yes
-Massage Establishment,Business 1-White Buildings,Industrial,No
+Massage Establishment,Business 1-White Buildings,Industrial,Not Allowed
 Massage Establishment,Business 2-White Buildings,Commercial,Yes
-Massage Establishment,Business 2-White Buildings,Industrial,No
+Massage Establishment,Business 2-White Buildings,Industrial,Not Allowed
 Medical Clinic,Shophouses,,Yes
 Medical Clinic,State Property on Interim Tenancy,,Yes
 Medical Clinic,HDB Commercial Premises,,Yes
 Medical Clinic,Commercial Buildings,,Yes
 Medical Clinic,Mixed Commercial & Residential Developments,Commercial,Yes
-Medical Clinic,Mixed Commercial & Residential Developments,Residential,No
+Medical Clinic,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Medical Clinic,Civic and Community Institution,,Yes
 Medical Clinic,Sports & Recreation Buildings,,Yes
 Medical Clinic,Buildings within Historic Conservation Areas,,Yes
 Medical Clinic,Industrial Buildings,Outlying Area (1st Storey),Yes
-Medical Clinic,Industrial Buildings,Others,No
+Medical Clinic,Industrial Buildings,Others,Not Allowed
 Medical Clinic,Business 1-White Buildings,Commercial,Yes
-Medical Clinic,Business 1-White Buildings,Industrial,No
+Medical Clinic,Business 1-White Buildings,Industrial,Not Allowed
 Medical Clinic,Business 2-White Buildings,Commercial,Yes
-Medical Clinic,Business 2-White Buildings,Industrial,No
+Medical Clinic,Business 2-White Buildings,Industrial,Not Allowed
 Pet Shop,Shophouses,,Yes
 Pet Shop,State Property on Interim Tenancy,,Yes
 Pet Shop,HDB Commercial Premises,,Yes
 Pet Shop,Commercial Buildings,,Yes
 Pet Shop,Mixed Commercial & Residential Developments,Commercial,Yes
-Pet Shop,Mixed Commercial & Residential Developments,Residential,No
+Pet Shop,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Pet Shop,Civic and Community Institution,,Yes
 Pet Shop,Sports & Recreation Buildings,,Yes
 Pet Shop,Buildings within Historic Conservation Areas,,Yes
-Pet Shop,Industrial Buildings,,No
+Pet Shop,Industrial Buildings,,Not Allowed
 Pet Shop,Business 1-White Buildings,Commercial,Yes
-Pet Shop,Business 1-White Buildings,Industrial,No
+Pet Shop,Business 1-White Buildings,Industrial,Not Allowed
 Pet Shop,Business 2-White Buildings,Commercial,Yes
-Pet Shop,Business 2-White Buildings,Industrial,No
-Pet Boarding,Shophouses,Residential,No
+Pet Shop,Business 2-White Buildings,Industrial,Not Allowed
+Pet Boarding,Shophouses,Residential,Not Allowed
 Pet Boarding,Shophouses,Commercial,Yes
 Pet Boarding,State Property on Interim Tenancy,,Yes
 Pet Boarding,HDB Commercial Premises,,Yes
 Pet Boarding,Commercial Buildings,,Yes
-Pet Boarding,Mixed Commercial & Residential Developments,Commercial,No
-Pet Boarding,Mixed Commercial & Residential Developments,Residential,No
-Pet Boarding,Civic and Community Institution,,No
-Pet Boarding,Sports & Recreation Buildings,,No
+Pet Boarding,Mixed Commercial & Residential Developments,Commercial,Not Allowed
+Pet Boarding,Mixed Commercial & Residential Developments,Residential,Not Allowed
+Pet Boarding,Civic and Community Institution,,Not Allowed
+Pet Boarding,Sports & Recreation Buildings,,Not Allowed
 Pet Boarding,Buildings within Historic Conservation Areas,,Yes
-Pet Boarding,Industrial Buildings,,No
+Pet Boarding,Industrial Buildings,,Not Allowed
 
 Commercial School,Shophouses,,Yes
 Commercial School,State Property on Interim Tenancy,,Yes
 Commercial School,HDB Commercial Premises,,Yes
 Commercial School,Commercial Buildings,,Yes
 Commercial School,Mixed Commercial & Residential Developments,Commercial,Yes
-Commercial School,Mixed Commercial & Residential Developments,Residential,No
+Commercial School,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Commercial School,Civic and Community Institution,,Yes
 Commercial School,Sports & Recreation Buildings,,Yes
 Commercial School,Buildings within Historic Conservation Areas,,Yes
-Commercial School,Industrial Buildings,,No
+Commercial School,Industrial Buildings,,Not Allowed
 Commercial School,Business 1-White Buildings,Commercial,Yes
-Commercial School,Business 1-White Buildings,Industrial,No
+Commercial School,Business 1-White Buildings,Industrial,Not Allowed
 Commercial School,Business 2-White Buildings,Commercial,Yes
-Commercial School,Business 2-White Buildings,Industrial,No
+Commercial School,Business 2-White Buildings,Industrial,Not Allowed
 Childcare Centre,Shophouses,,Yes
 Childcare Centre,State Property on Interim Tenancy,,Yes
 Childcare Centre,HDB Commercial Premises,,Yes
 Childcare Centre,Commercial Buildings,,Yes
 Childcare Centre,Mixed Commercial & Residential Developments,Commercial,Yes
-Childcare Centre,Mixed Commercial & Residential Developments,Residential,No
+Childcare Centre,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Childcare Centre,Civic and Community Institution,,Yes
 Childcare Centre,Sports & Recreation Buildings,,Yes
 Childcare Centre,Buildings within Historic Conservation Areas,,Yes
 Childcare Centre,Industrial Buildings,Zoned Business 1,Yes
-Childcare Centre,Industrial Buildings,Zoned Business 2,No
+Childcare Centre,Industrial Buildings,Zoned Business 2,Not Allowed
 Childcare Centre,Landed Houses,,Conditional
 Childcare Centre,Place of Worship,,Maybe
 Childcare Centre,Educational Institution,,Yes
@@ -200,185 +201,185 @@ Childcare Centre,Hotel,,Yes
 Childcare Centre,Business 1-White Buildings,Commercial,Yes
 Childcare Centre,Business 1-White Buildings,Industrial,Yes
 Childcare Centre,Business 2-White Buildings,Commercial,Yes
-Childcare Centre,Business 2-White Buildings,Industrial,No
+Childcare Centre,Business 2-White Buildings,Industrial,Not Allowed
 
 Fitness Centre/Gymnasium,Shophouses,,Yes
 Fitness Centre/Gymnasium,State Property on Interim Tenancy,,Yes
 Fitness Centre/Gymnasium,HDB Commercial Premises,,Yes
 Fitness Centre/Gymnasium,Commercial Buildings,,Yes
 Fitness Centre/Gymnasium,Mixed Commercial & Residential Developments,Commercial,Yes
-Fitness Centre/Gymnasium,Mixed Commercial & Residential Developments,Residential,No
+Fitness Centre/Gymnasium,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Fitness Centre/Gymnasium,Civic and Community Institution,,Yes
 Fitness Centre/Gymnasium,Sports & Recreation Buildings,,Yes
 Fitness Centre/Gymnasium,Buildings within Historic Conservation Areas,,Yes
 Fitness Centre/Gymnasium,Industrial Buildings,Outlying Area (1st Storey),Yes
-Fitness Centre/Gymnasium,Industrial Buildings,Others,No
+Fitness Centre/Gymnasium,Industrial Buildings,Others,Not Allowed
 Fitness Centre/Gymnasium,Business 1-White Buildings,Commercial,Yes
-Fitness Centre/Gymnasium,Business 1-White Buildings,Industrial,No
+Fitness Centre/Gymnasium,Business 1-White Buildings,Industrial,Not Allowed
 Fitness Centre/Gymnasium,Business 2-White Buildings,Commercial,Yes
-Fitness Centre/Gymnasium,Business 2-White Buildings,Industrial,No
+Fitness Centre/Gymnasium,Business 2-White Buildings,Industrial,Not Allowed
 Amusement Centre,Shophouses,,Yes
 Amusement Centre,State Property on Interim Tenancy,,Yes
 Amusement Centre,HDB Commercial Premises,,Yes
 Amusement Centre,Commercial Buildings,,Yes
 Amusement Centre,Mixed Commercial & Residential Developments,Commercial,Yes
-Amusement Centre,Mixed Commercial & Residential Developments,Residential,No
+Amusement Centre,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Amusement Centre,Civic and Community Institution,,Yes
 Amusement Centre,Sports & Recreation Buildings,,Yes
-Amusement Centre,Buildings within Historic Conservation Areas,,No
-Amusement Centre,Industrial Buildings,,No
+Amusement Centre,Buildings within Historic Conservation Areas,,Not Allowed
+Amusement Centre,Industrial Buildings,,Not Allowed
 Amusement Centre,Business 1-White Buildings,Commercial,Yes
-Amusement Centre,Business 1-White Buildings,Industrial,No
+Amusement Centre,Business 1-White Buildings,Industrial,Not Allowed
 Amusement Centre,Business 2-White Buildings,Commercial,Yes
-Amusement Centre,Business 2-White Buildings,Industrial,No
+Amusement Centre,Business 2-White Buildings,Industrial,Not Allowed
 
 Residential,Shophouses,,Yes
 Residential,State Property on Interim Tenancy,,Yes
-Residential,HDB Commercial Premises,,No
-Residential,Commercial Buildings,,No
-Residential,Mixed Commercial & Residential Developments,Commercial,No
+Residential,HDB Commercial Premises,,Not Allowed
+Residential,Commercial Buildings,,Not Allowed
+Residential,Mixed Commercial & Residential Developments,Commercial,Not Allowed
 Residential,Mixed Commercial & Residential Developments,Residential,Yes
-Residential,Civic and Community Institution,,No
-Residential,Sports & Recreation Buildings,,No
+Residential,Civic and Community Institution,,Not Allowed
+Residential,Sports & Recreation Buildings,,Not Allowed
 Residential,Buildings within Historic Conservation Areas,,Yes
-Residential,Industrial Buildings,,No
-Residential,Business 1-White Buildings,Commercial,No
-Residential,Business 1-White Buildings,Industrial,No
-Residential,Business 2-White Buildings,Commercial,No
-Residential,Business 2-White Buildings,Industrial,No
+Residential,Industrial Buildings,,Not Allowed
+Residential,Business 1-White Buildings,Commercial,Not Allowed
+Residential,Business 1-White Buildings,Industrial,Not Allowed
+Residential,Business 2-White Buildings,Commercial,Not Allowed
+Residential,Business 2-White Buildings,Industrial,Not Allowed
 Backpackers' Hostel,Shophouses,,Yes
 Backpackers' Hostel,State Property on Interim Tenancy,,Yes
-Backpackers' Hostel,HDB Commercial Premises,,No
-Backpackers' Hostel,Commercial Buildings,,No
-Backpackers' Hostel,Mixed Commercial & Residential Developments,,No
-Backpackers' Hostel,Civic and Community Institution,,No
-Backpackers' Hostel,Sports & Recreation Buildings,,No
+Backpackers' Hostel,HDB Commercial Premises,,Not Allowed
+Backpackers' Hostel,Commercial Buildings,,Not Allowed
+Backpackers' Hostel,Mixed Commercial & Residential Developments,,Not Allowed
+Backpackers' Hostel,Civic and Community Institution,,Not Allowed
+Backpackers' Hostel,Sports & Recreation Buildings,,Not Allowed
 Backpackers' Hostel,Buildings within Historic Conservation Areas,,Yes
-Backpackers' Hostel,Industrial Buildings,,No
+Backpackers' Hostel,Industrial Buildings,,Not Allowed
 Backpackers' Hostel,Hotel,,Yes
-Backpackers' Hostel,Business 1-White Buildings,Commercial,No
-Backpackers' Hostel,Business 1-White Buildings,Industrial,No
-Backpackers' Hostel,Business 2-White Buildings,Commercial,No
-Backpackers' Hostel,Business 2-White Buildings,Industrial,No
+Backpackers' Hostel,Business 1-White Buildings,Commercial,Not Allowed
+Backpackers' Hostel,Business 1-White Buildings,Industrial,Not Allowed
+Backpackers' Hostel,Business 2-White Buildings,Commercial,Not Allowed
+Backpackers' Hostel,Business 2-White Buildings,Industrial,Not Allowed
 Hotel,Shophouses,,Yes
 Hotel,State Property on Interim Tenancy,,Yes
-Hotel,HDB Commercial Premises,,No
-Hotel,Commercial Buildings,,No
-Hotel,Mixed Commercial & Residential Developments,,No
-Hotel,Civic and Community Institution,,No
-Hotel,Sports & Recreation Buildings,,No
+Hotel,HDB Commercial Premises,,Not Allowed
+Hotel,Commercial Buildings,,Not Allowed
+Hotel,Mixed Commercial & Residential Developments,,Not Allowed
+Hotel,Civic and Community Institution,,Not Allowed
+Hotel,Sports & Recreation Buildings,,Not Allowed
 Hotel,Buildings within Historic Conservation Areas,,Yes
-Hotel,Industrial Buildings,,No
+Hotel,Industrial Buildings,,Not Allowed
 Hotel,Hotel,Commercial,Yes
 Hotel,Hotel,Hotel,Yes
-Hotel,Business 1-White Buildings,Commercial,No
-Hotel,Business 1-White Buildings,Industrial,No
-Hotel,Business 2-White Buildings,Commercial,No
-Hotel,Business 2-White Buildings,Industrial,No
+Hotel,Business 1-White Buildings,Commercial,Not Allowed
+Hotel,Business 1-White Buildings,Industrial,Not Allowed
+Hotel,Business 2-White Buildings,Commercial,Not Allowed
+Hotel,Business 2-White Buildings,Industrial,Not Allowed
 Students' Hostel,Shophouses,,Yes
 Students' Hostel,State Property on Interim Tenancy,,Yes
-Students' Hostel,HDB Commercial Premises,,No
-Students' Hostel,Commercial Buildings,,No
-Students' Hostel,Mixed Commercial & Residential Developments,Commercial,No
+Students' Hostel,HDB Commercial Premises,,Not Allowed
+Students' Hostel,Commercial Buildings,,Not Allowed
+Students' Hostel,Mixed Commercial & Residential Developments,Commercial,Not Allowed
 Students' Hostel,Mixed Commercial & Residential Developments,Residential,Yes
-Students' Hostel,Civic and Community Institution,,No
-Students' Hostel,Sports & Recreation Buildings,,No
+Students' Hostel,Civic and Community Institution,,Not Allowed
+Students' Hostel,Sports & Recreation Buildings,,Not Allowed
 Students' Hostel,Buildings within Historic Conservation Areas,,Yes
-Students' Hostel,Industrial Buildings,,No
-Students' Hostel,Business 1-White Buildings,Commercial,No
-Students' Hostel,Business 1-White Buildings,Industrial,No
-Students' Hostel,Business 2-White Buildings,Commercial,No
-Students' Hostel,Business 2-White Buildings,Industrial,No
+Students' Hostel,Industrial Buildings,,Not Allowed
+Students' Hostel,Business 1-White Buildings,Commercial,Not Allowed
+Students' Hostel,Business 1-White Buildings,Industrial,Not Allowed
+Students' Hostel,Business 2-White Buildings,Commercial,Not Allowed
+Students' Hostel,Business 2-White Buildings,Industrial,Not Allowed
 Serviced Apartment,Shophouses,,Yes
 Serviced Apartment,State Property on Interim Tenancy,,Yes
-Serviced Apartment,HDB Commercial Premises,,No
-Serviced Apartment,Commercial Buildings,,No
-Serviced Apartment,Mixed Commercial & Residential Developments,Commercial,No
+Serviced Apartment,HDB Commercial Premises,,Not Allowed
+Serviced Apartment,Commercial Buildings,,Not Allowed
+Serviced Apartment,Mixed Commercial & Residential Developments,Commercial,Not Allowed
 Serviced Apartment,Mixed Commercial & Residential Developments,Residential,Yes
-Serviced Apartment,Civic and Community Institution,,No
-Serviced Apartment,Sports & Recreation Buildings,,No
+Serviced Apartment,Civic and Community Institution,,Not Allowed
+Serviced Apartment,Sports & Recreation Buildings,,Not Allowed
 Serviced Apartment,Buildings within Historic Conservation Areas,,Yes
-Serviced Apartment,Industrial Buildings,,No
+Serviced Apartment,Industrial Buildings,,Not Allowed
 Serviced Apartment,Hotel,,Yes
-Serviced Apartment,Business 1-White Buildings,Commercial,No
-Serviced Apartment,Business 1-White Buildings,Industrial,No
-Serviced Apartment,Business 2-White Buildings,Commercial,No
-Serviced Apartment,Business 2-White Buildings,Industrial,No
+Serviced Apartment,Business 1-White Buildings,Commercial,Not Allowed
+Serviced Apartment,Business 1-White Buildings,Industrial,Not Allowed
+Serviced Apartment,Business 2-White Buildings,Commercial,Not Allowed
+Serviced Apartment,Business 2-White Buildings,Industrial,Not Allowed
 Workers' Dormitories,Shophouses,,Yes
 Workers' Dormitories,State Property on Interim Tenancy,,Yes
-Workers' Dormitories,HDB Commercial Premises,,No
-Workers' Dormitories,Commercial Buildings,,No
-Workers' Dormitories,Mixed Commercial & Residential Developments,,No
-Workers' Dormitories,Civic and Community Institution,,No
-Workers' Dormitories,Sports & Recreation Buildings,,No
-Workers' Dormitories,Buildings within Historic Conservation Areas,,No
+Workers' Dormitories,HDB Commercial Premises,,Not Allowed
+Workers' Dormitories,Commercial Buildings,,Not Allowed
+Workers' Dormitories,Mixed Commercial & Residential Developments,,Not Allowed
+Workers' Dormitories,Civic and Community Institution,,Not Allowed
+Workers' Dormitories,Sports & Recreation Buildings,,Not Allowed
+Workers' Dormitories,Buildings within Historic Conservation Areas,,Not Allowed
 Workers' Dormitories,Industrial Buildings,,Conditional
-Workers' Dormitories,Business 1-White Buildings,Commercial,No
-Workers' Dormitories,Business 1-White Buildings,Industrial,No
-Workers' Dormitories,Business 2-White Buildings,Commercial,No
-Workers' Dormitories,Business 2-White Buildings,Industrial,No
+Workers' Dormitories,Business 1-White Buildings,Commercial,Not Allowed
+Workers' Dormitories,Business 1-White Buildings,Industrial,Not Allowed
+Workers' Dormitories,Business 2-White Buildings,Commercial,Not Allowed
+Workers' Dormitories,Business 2-White Buildings,Industrial,Not Allowed
 
-Light Industrial Use,Shophouses,,No
+Light Industrial Use,Shophouses,,Not Allowed
 Light Industrial Use,State Property on Interim Tenancy,,Yes
-Light Industrial Use,HDB Commercial Premises,,No
-Light Industrial Use,Commercial Buildings,,No
-Light Industrial Use,Mixed Commercial & Residential Developments,,No
-Light Industrial Use,Civic and Community Institution,,No
-Light Industrial Use,Sports & Recreation Buildings,,No
-Light Industrial Use,Buildings within Historic Conservation Areas,,No But
+Light Industrial Use,HDB Commercial Premises,,Not Allowed
+Light Industrial Use,Commercial Buildings,,Not Allowed
+Light Industrial Use,Mixed Commercial & Residential Developments,,Not Allowed
+Light Industrial Use,Civic and Community Institution,,Not Allowed
+Light Industrial Use,Sports & Recreation Buildings,,Not Allowed
+Light Industrial Use,Buildings within Historic Conservation Areas,,Not Allowed But
 Light Industrial Use,Industrial Buildings,,Yes
-Light Industrial Use,Business 1-White Buildings,Commercial,No
+Light Industrial Use,Business 1-White Buildings,Commercial,Not Allowed
 Light Industrial Use,Business 1-White Buildings,Industrial,Yes
-Light Industrial Use,Business 2-White Buildings,Commercial,No
+Light Industrial Use,Business 2-White Buildings,Commercial,Not Allowed
 Light Industrial Use,Business 2-White Buildings,Industrial,Yes
-General Industrial Use,Shophouses,,No
+General Industrial Use,Shophouses,,Not Allowed
 General Industrial Use,State Property on Interim Tenancy,,Yes
-General Industrial Use,HDB Commercial Premises,,No
-General Industrial Use,Commercial Buildings,,No
-General Industrial Use,Mixed Commercial & Residential Developments,,No
-General Industrial Use,Civic and Community Institution,,No
-General Industrial Use,Sports & Recreation Buildings,,No
-General Industrial Use,Buildings within Historic Conservation Areas,,No But
-General Industrial Use,Industrial Buildings,Zoned Business 1,No
+General Industrial Use,HDB Commercial Premises,,Not Allowed
+General Industrial Use,Commercial Buildings,,Not Allowed
+General Industrial Use,Mixed Commercial & Residential Developments,,Not Allowed
+General Industrial Use,Civic and Community Institution,,Not Allowed
+General Industrial Use,Sports & Recreation Buildings,,Not Allowed
+General Industrial Use,Buildings within Historic Conservation Areas,,Not Allowed But
+General Industrial Use,Industrial Buildings,Zoned Business 1,Not Allowed
 General Industrial Use,Industrial Buildings,Zoned Business 2,Yes
-General Industrial Use,Business 1-White Buildings,Commercial,No
+General Industrial Use,Business 1-White Buildings,Commercial,Not Allowed
 General Industrial Use,Business 1-White Buildings,Industrial,Yes
-General Industrial Use,Business 2-White Buildings,Commercial,No
+General Industrial Use,Business 2-White Buildings,Commercial,Not Allowed
 General Industrial Use,Business 2-White Buildings,Industrial,Yes
-Industrial Training,Shophouses,,No
+Industrial Training,Shophouses,,Not Allowed
 Industrial Training,State Property on Interim Tenancy,,Yes
-Industrial Training,HDB Commercial Premises,,No
-Industrial Training,Commercial Buildings,,No
-Industrial Training,Mixed Commercial & Residential Developments,,No
-Industrial Training,Civic and Community Institution,,No
-Industrial Training,Sports & Recreation Buildings,,No
-Industrial Training,Buildings within Historic Conservation Areas,,No
+Industrial Training,HDB Commercial Premises,,Not Allowed
+Industrial Training,Commercial Buildings,,Not Allowed
+Industrial Training,Mixed Commercial & Residential Developments,,Not Allowed
+Industrial Training,Civic and Community Institution,,Not Allowed
+Industrial Training,Sports & Recreation Buildings,,Not Allowed
+Industrial Training,Buildings within Historic Conservation Areas,,Not Allowed
 Industrial Training,Industrial Buildings,,Yes
-Industrial Training,Business 1-White Buildings,Commercial,No
+Industrial Training,Business 1-White Buildings,Commercial,Not Allowed
 Industrial Training,Business 1-White Buildings,Industrial,Yes
-Industrial Training,Business 2-White Buildings,Commercial,No
+Industrial Training,Business 2-White Buildings,Commercial,Not Allowed
 Industrial Training,Business 2-White Buildings,Industrial,Yes
-Warehouse,Shophouses,,No
+Warehouse,Shophouses,,Not Allowed
 Warehouse,State Property on Interim Tenancy,,Yes
-Warehouse,HDB Commercial Premises,,No
-Warehouse,Commercial Buildings,,No
-Warehouse,Mixed Commercial & Residential Developments,,No
-Warehouse,Civic and Community Institution,,No
-Warehouse,Sports & Recreation Buildings,,No
-Warehouse,Buildings within Historic Conservation Areas,,No
+Warehouse,HDB Commercial Premises,,Not Allowed
+Warehouse,Commercial Buildings,,Not Allowed
+Warehouse,Mixed Commercial & Residential Developments,,Not Allowed
+Warehouse,Civic and Community Institution,,Not Allowed
+Warehouse,Sports & Recreation Buildings,,Not Allowed
+Warehouse,Buildings within Historic Conservation Areas,,Not Allowed
 Warehouse,Industrial Buildings,,Yes
-Warehouse,Business 1-White Buildings,Commercial,No
+Warehouse,Business 1-White Buildings,Commercial,Not Allowed
 Warehouse,Business 1-White Buildings,Industrial,Yes
-Warehouse,Business 2-White Buildings,Commercial,No
+Warehouse,Business 2-White Buildings,Commercial,Not Allowed
 Warehouse,Business 2-White Buildings,Industrial,Yes
-Industrial Canteen,Shophouses,,No
+Industrial Canteen,Shophouses,,Not Allowed
 Industrial Canteen,State Property on Interim Tenancy,,Yes
-Industrial Canteen,HDB Commercial Premises,,No
-Industrial Canteen,Commercial Buildings,,No
-Industrial Canteen,Mixed Commercial & Residential Developments,,No
-Industrial Canteen,Civic and Community Institution,,No
-Industrial Canteen,Sports & Recreation Buildings,,No
-Industrial Canteen,Buildings within Historic Conservation Areas,,No
+Industrial Canteen,HDB Commercial Premises,,Not Allowed
+Industrial Canteen,Commercial Buildings,,Not Allowed
+Industrial Canteen,Mixed Commercial & Residential Developments,,Not Allowed
+Industrial Canteen,Civic and Community Institution,,Not Allowed
+Industrial Canteen,Sports & Recreation Buildings,,Not Allowed
+Industrial Canteen,Buildings within Historic Conservation Areas,,Not Allowed
 Industrial Canteen,Industrial Buildings,,Yes
 Industrial Canteen,Business 1-White Buildings,Commercial,Yes
 Industrial Canteen,Business 1-White Buildings,Industrial,Yes
@@ -389,38 +390,38 @@ Showroom,State Property on Interim Tenancy,,Yes
 Showroom,HDB Commercial Premises,,Yes
 Showroom,Commercial Buildings,,Yes
 Showroom,Mixed Commercial & Residential Developments,Commercial,Yes
-Showroom,Mixed Commercial & Residential Developments,Residential,No
+Showroom,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Showroom,Civic and Community Institution,,Yes
 Showroom,Sports & Recreation Buildings,,Yes
 Showroom,Buildings within Historic Conservation Areas,,Yes
 Showroom,Industrial Buildings,1st Storey,Yes
-Showroom,Industrial Buildings,Others,No
+Showroom,Industrial Buildings,Others,Not Allowed
 Showroom,Hotel,Commercial,Yes
 Showroom,Hotel,Hotel,Yes
 Showroom,Business 1-White Buildings,Commercial,Yes
 Showroom,Business 1-White Buildings,Industrial,Yes
 Showroom,Business 2-White Buildings,Commercial,Yes
 Showroom,Business 2-White Buildings,Industrial,Yes
-E-business,Shophouses,,No
-E-business,State Property on Interim Tenancy,,No
-E-business,HDB Commercial Premises,,No
+E-business,Shophouses,,Not Allowed
+E-business,State Property on Interim Tenancy,,Not Allowed
+E-business,HDB Commercial Premises,,Not Allowed
 E-business,Commercial Buildings,,Yes
-E-business,Mixed Commercial & Residential Developments,,No
-E-business,Civic and Community Institution,,No
-E-business,Sports & Recreation Buildings,,No
+E-business,Mixed Commercial & Residential Developments,,Not Allowed
+E-business,Civic and Community Institution,,Not Allowed
+E-business,Sports & Recreation Buildings,,Not Allowed
 E-business,Buildings within Historic Conservation Areas,,Yes
 E-business,Industrial Buildings,,Yes
 E-business,Business 1-White Buildings,Commercial,Yes
 E-business,Business 1-White Buildings,Industrial,Yes
 E-business,Business 2-White Buildings,Commercial,Yes
 E-business,Business 2-White Buildings,Industrial,Yes
-Core Media Activities,Shophouses,,No
-Core Media Activities,State Property on Interim Tenancy,,No
-Core Media Activities,HDB Commercial Premises,,No
+Core Media Activities,Shophouses,,Not Allowed
+Core Media Activities,State Property on Interim Tenancy,,Not Allowed
+Core Media Activities,HDB Commercial Premises,,Not Allowed
 Core Media Activities,Commercial Buildings,,Yes
-Core Media Activities,Mixed Commercial & Residential Developments,,No
-Core Media Activities,Civic and Community Institution,,No
-Core Media Activities,Sports & Recreation Buildings,,No
+Core Media Activities,Mixed Commercial & Residential Developments,,Not Allowed
+Core Media Activities,Civic and Community Institution,,Not Allowed
+Core Media Activities,Sports & Recreation Buildings,,Not Allowed
 Core Media Activities,Buildings within Historic Conservation Areas,,Yes
 Core Media Activities,Industrial Buildings,,Yes
 Core Media Activities,Business 1-White Buildings,Commercial,Yes
@@ -433,31 +434,31 @@ Association/Community Club/Family Service Centre,State Property on Interim Tenan
 Association/Community Club/Family Service Centre,HDB Commercial Premises,,Yes
 Association/Community Club/Family Service Centre,Commercial Buildings,,Yes
 Association/Community Club/Family Service Centre,Mixed Commercial & Residential Developments,Commercial,Yes
-Association/Community Club/Family Service Centre,Mixed Commercial & Residential Developments,Residential,No
+Association/Community Club/Family Service Centre,Mixed Commercial & Residential Developments,Residential,Not Allowed
 Association/Community Club/Family Service Centre,Civic and Community Institution,,Yes
 Association/Community Club/Family Service Centre,Sports & Recreation Buildings,,Yes
 Association/Community Club/Family Service Centre,Buildings within Historic Conservation Areas,,Yes
-Association/Community Club/Family Service Centre,Industrial Buildings,,No
+Association/Community Club/Family Service Centre,Industrial Buildings,,Not Allowed
 Association/Community Club/Family Service Centre,Business 1-White Buildings,Commercial,Yes
-Association/Community Club/Family Service Centre,Business 1-White Buildings,Industrial,No
+Association/Community Club/Family Service Centre,Business 1-White Buildings,Industrial,Not Allowed
 Association/Community Club/Family Service Centre,Business 2-White Buildings,Commercial,Yes
-Association/Community Club/Family Service Centre,Business 2-White Buildings,Industrial,No
+Association/Community Club/Family Service Centre,Business 2-White Buildings,Industrial,Not Allowed
 
-Religious Activities,Shophouses,,No
-Religious Activities,State Property on Interim Tenancy,,No
-Religious Activities,HDB Commercial Premises,,No
-Religious Activities,Commercial Buildings,,No
-Religious Activities,Mixed Commercial & Residential Developments,,No
-Religious Activities,Civic and Community Institution,,No
-Religious Activities,Sports & Recreation Buildings,,No
-Religious Activities,Buildings within Historic Conservation Areas,,No
-Religious Activities,Industrial Buildings,,No
-Limited & Non-Exclusive Religious Use,Shophouses,,No
-Limited & Non-Exclusive Religious Use,State Property on Interim Tenancy,,No
-Limited & Non-Exclusive Religious Use,HDB Commercial Premises,,No
+Religious Activities,Shophouses,,Not Allowed
+Religious Activities,State Property on Interim Tenancy,,Not Allowed
+Religious Activities,HDB Commercial Premises,,Not Allowed
+Religious Activities,Commercial Buildings,,Not Allowed
+Religious Activities,Mixed Commercial & Residential Developments,,Not Allowed
+Religious Activities,Civic and Community Institution,,Not Allowed
+Religious Activities,Sports & Recreation Buildings,,Not Allowed
+Religious Activities,Buildings within Historic Conservation Areas,,Not Allowed
+Religious Activities,Industrial Buildings,,Not Allowed
+Limited & Non-Exclusive Religious Use,Shophouses,,Not Allowed
+Limited & Non-Exclusive Religious Use,State Property on Interim Tenancy,,Not Allowed
+Limited & Non-Exclusive Religious Use,HDB Commercial Premises,,Not Allowed
 Limited & Non-Exclusive Religious Use,Commercial Buildings,,Yes
-Limited & Non-Exclusive Religious Use,Mixed Commercial & Residential Developments,,No
-Limited & Non-Exclusive Religious Use,Civic and Community Institution,,No
-Limited & Non-Exclusive Religious Use,Sports & Recreation Buildings,,No
-Limited & Non-Exclusive Religious Use,Buildings within Historic Conservation Areas,,No
+Limited & Non-Exclusive Religious Use,Mixed Commercial & Residential Developments,,Not Allowed
+Limited & Non-Exclusive Religious Use,Civic and Community Institution,,Not Allowed
+Limited & Non-Exclusive Religious Use,Sports & Recreation Buildings,,Not Allowed
+Limited & Non-Exclusive Religious Use,Buildings within Historic Conservation Areas,,Not Allowed
 Limited & Non-Exclusive Religious Use,Industrial Buildings,,Yes

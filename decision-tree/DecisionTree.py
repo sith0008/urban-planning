@@ -10,14 +10,15 @@ def decision(business, property, unitzone):
     df = pd.read_csv("Assessment_Criteria.csv")
     df['Unit_Zone'] = df['Unit_Zone'].fillna('Others')
     df['Business_Use_Type'], business_mapping = pd.factorize(df.Business_Use_Type)
-    df['Property_Type'] = pd.factorize(df.Property_Type)[0]
-    df['Unit_Zone'] = pd.factorize(df.Unit_Zone)[0]
-    df['Assessment_Criteria'] = pd.factorize(df.Assessment_Criteria)[0]
+    business_mapping = business_mapping.tolist()
+    df['Property_Type'], property_mapping = pd.factorize(df.Property_Type)
+    property_mapping = property_mapping.tolist()
+    df['Unit_Zone'], unitzone_mapping = pd.factorize(df.Unit_Zone)
+    unitzone_mapping = unitzone_mapping.tolist()
+    df['Assessment_Criteria'], assessment_mapping = pd.factorize(df.Assessment_Criteria)
+    assessment_mapping = assessment_mapping.tolist()
 
-    pd.set_option('display.max_columns', 500)
-    print(df)
-    print(df['Business_Use_Type'])
-    print(business_mapping.tolist(), type(business_mapping))
+    print(business_mapping)
 
     features = ['Business_Use_Type', 'Property_Type', 'Unit_Zone']
 
@@ -36,6 +37,6 @@ def decision(business, property, unitzone):
     #
     # print(dtree.predict([[0, 4, 2]]))
 
-    # return dtree.predict([[business, property, unitzone]])
+    return dtree.predict([[business, property, unitzone]])
 
 decision(1,1,1)
