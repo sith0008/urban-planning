@@ -1,0 +1,30 @@
+[
+  {
+    "dcgReport": [
+
+    ],
+    "evalReport": [
+      {
+        "evalInfo": [
+          {}
+        ],
+        "proposal": "",
+        "propInfo": [
+          {
+            "remarks": "",
+            "ownerConsent"
+          }
+        ]
+      }
+    ],
+    "bizTown": [
+      {
+        
+      }
+    ],
+    "vectRepr": [
+      1,
+      2
+    ]
+  }
+]
