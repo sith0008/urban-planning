@@ -138,7 +138,7 @@ actions:
 - utter_goodbye
 - utter_greet
 - utter_slots_values
-- utter_classifcation
+- utter_classification
 - utter_api_response
 forms:
   cou_form: {}

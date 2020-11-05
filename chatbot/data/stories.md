@@ -7,19 +7,6 @@
   - utter_iamabot
 
 ## survey happy path 
-<!-- to start form, instead of affirm, it should be start_form -->
-
-<!-- * greet
-    - utter_greet
-* affirm
-    - cou_form
-    - form{"name": "cou_form"}
-    - form{"name": null}
-    - utter_slots_values
-* thankyou
-    - utter_no_worries
-    - utter_goodbye -->
-
 * greet
     - utter_greet
 * start_form
@@ -27,7 +14,7 @@
     - form{"name": "cou_form"}
     - form{"name": null}
     - utter_slots_values
-    - utter_classifcation
+    - utter_classification
     - utter_api_response
 * thankyou
     - utter_no_worries
@@ -65,14 +52,3 @@
     - utter_greet
 * deny
     - utter_goodbye
-
-
-
-<!-- ## survey backtrack
-* greet
-    - utter_greet
-* affirm
-    -cou_form
-    -form{"name": "cou_form"}
-* mistake
-    -cou_ -->
