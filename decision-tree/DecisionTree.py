@@ -43,7 +43,8 @@ def decision(business, zone_no, unitzone, condition='0'):
     # Map Zone Number to Property Type
     zone = zoneNoToZone[zone_no]
     if zone in zoneToBiz:
-        property_type = property_df.index(zoneToBiz[zone])+1
+        property_type = property_df.index(zoneToBiz[zone])-1
+        # print(dtree.predict([[business, property_type, unitzone, condition]])[0])
         return assessmentToAssessmentNo[assessment_mapping[dtree.predict([[business, property_type, unitzone,
                                                                            condition]])[0]]]
     else:
@@ -58,4 +59,4 @@ def decision(business, zone_no, unitzone, condition='0'):
     # imgplot = plt.imshow(img)
     # plt.show()
 
-print(decision(1, 4, 0))
+print(decision(1, 1, 0))
