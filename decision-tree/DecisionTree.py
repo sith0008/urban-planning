@@ -35,20 +35,22 @@ def decision(business, zone_no, unitzone, condition='0'):
     dtree = DecisionTreeClassifier()
     dtree = dtree.fit(X, y)
 
-    # print(len(business_df), business_df)
-    # print(len(property_df), property_df)
+    print(business_df)
+    print(property_df)
     # print(len(unitzone_df), unitzone_df)
     # print(len(assessment_mapping), assessment_mapping)
 
     # Map Zone Number to Property Type
     zone = zoneNoToZone[zone_no]
     if zone in zoneToBiz:
-        property_type = property_df.index(zoneToBiz[zone])-1
-        # print(dtree.predict([[business, property_type, unitzone, condition]])[0])
-        return assessmentToAssessmentNo[assessment_mapping[dtree.predict([[business, property_type, unitzone,
-                                                                           condition]])[0]]]
+        print("zone", zone)
+        property_type = property_df.index(zoneToBiz[zone]) + 1
+        print("property", property_type, property_df[property_type-1])
+        decision = dtree.predict([[business, property_type, unitzone, condition]])[0]
+        print("decision", decision, classification_mapping[decision])
+        return assessmentToAssessmentNo[assessment_mapping[decision]]
     else:
-        return 4
+        return 5
 
 
     # data = tree.export_graphviz(dtree, out_file=None, feature_names=features)
@@ -59,4 +61,6 @@ def decision(business, zone_no, unitzone, condition='0'):
     # imgplot = plt.imshow(img)
     # plt.show()
 
-print(decision(1, 1, 0))
+# print(decision(4, 3, 0))
+print(decision(1, 4, 0))
+

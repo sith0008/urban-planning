@@ -27,6 +27,8 @@ def getZone(search_text):
                                        coord_json['results'][0]['ROAD_NAME'], \
                                        coord_json['results'][0]['BUILDING']
 
+            print(coord_json)
+
             lat, lng = coord_json['results'][0]['LATITUDE'], coord_json['results'][0]['LONGITUDE']
 
             land_url = f'https://www.ura.gov.sg/arcgis/rest/services/MP19/Updated_Landuse_gaz/MapServer/45/' \
@@ -38,6 +40,7 @@ def getZone(search_text):
             land_r = requests.get(land_url).json()
 
             land_use = land_r['features'][0]['attributes']['LU_DESC']
+            print("landuse", land_use)
     except requests.exceptions.RequestException as e:
         print(e)
 
@@ -45,6 +48,8 @@ def getZone(search_text):
         return land_use, str(zoneToZoneNo[land_use])
     else:
         return "", str(0)
+
+getZone("637005")
 
 
 
