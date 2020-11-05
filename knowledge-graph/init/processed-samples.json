@@ -49,5 +49,22 @@
             "unit": 1,
             "propertyType": "Residential/Institution"
         }
+    },
+    {
+        "case": {
+            "id":"ES20180102R0185",
+            "proposedUseClass": "Restaurant",
+            "proposedUseDesc": "cafeteria at level 1",
+            "gfa": 14,
+            "decision": "WP",
+            "evaluation": "no comments"
+        },
+        "location": {
+            "postalCode": "100000",
+            "lot":"TS-55",
+            "floor":1,
+            "unit":1,
+            "propertyType":"Commercial"
+        }        
     }
 ]
