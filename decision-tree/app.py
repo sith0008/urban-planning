@@ -2,16 +2,16 @@
 
 from flask import Flask, request
 from DecisionTree import decision
-from LandUse import getLandUse
+from ZoningInterpretation import getZone
 
 app = Flask(__name__)
 
 
-@app.route('/landuse')
-def landuse():
+@app.route('/zone')
+def zone():
     _postal = request.args.get('postal') if request.args.get('postal') else 0
-    _property = getLandUse(_postal)
-    return _property
+    _zone = getZone(_postal)
+    return _zone
 
 
 @app.route('/query')

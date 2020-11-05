@@ -1,7 +1,8 @@
 import requests
+from mapping import *
 
 
-def getLandUse(search_text):
+def getZone(search_text):
     search_text = str(search_text).replace(" ", "%20")
     land_use = None
 
@@ -40,7 +41,11 @@ def getLandUse(search_text):
     except requests.exceptions.RequestException as e:
         print(e)
 
-    return land_use
+    if land_use in zoneToZoneNo:
+        return str(zoneToZoneNo[land_use])
+    else:
+        return str(0)
+
 
 
 
