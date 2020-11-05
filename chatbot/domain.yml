@@ -42,6 +42,8 @@ slots:
     type: unfeaturized
   unit:
     type: unfeaturized
+  classification:
+    type: unfeaturized
   responses:
     type: unfeaturized
 
@@ -123,6 +125,9 @@ responses:
   
   utter_api_response:
   - text: "Found these cases to be similar to application: {responses}"
+
+  utter_classification:
+  - text: "{classification}"
   
   utter_no_worries:
   - text: No problem :)
@@ -133,6 +138,7 @@ actions:
 - utter_goodbye
 - utter_greet
 - utter_slots_values
+- utter_classifcation
 - utter_api_response
 forms:
   cou_form: {}

@@ -27,6 +27,7 @@
     - form{"name": "cou_form"}
     - form{"name": null}
     - utter_slots_values
+    - utter_classifcation
     - utter_api_response
 * thankyou
     - utter_no_worries
