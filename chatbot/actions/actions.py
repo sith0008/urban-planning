@@ -218,13 +218,13 @@ class COUForm(FormAction):
         unit = int(tracker.get_slot("unit"))
         
         propType = self.getPropertyType(postal)
-        subClassification = self.getSubmissionClassification(business_mapping[use_class], propType)
+        subClassification = int(self.getSubmissionClassification(business_mapping[use_class], propType))
         if subClassification == 1 or subClassification == 2 or subClassification == 4:
-            return [SlotSet("classifcation", classification_mapping[subClassification])]
+            return [SlotSet("classification", classification_mapping[subClassification])]
         else:
             similarCases = self.getSimilarCases(use_class, use_desc, gfa, postal, lotnum, floor, unit)
             responses = self.constructResponse(similarCases)
-            return [SlotSet("classifcation", classification_mapping[subClassification]),SlotSet("responses", responses if responses is not None else [])]
+            return [SlotSet("classification", classification_mapping[subClassification]),SlotSet("responses", responses if responses is not None else [])]
 
         # dispatcher.utter_message(f"Found these cases to be similar to your application: {responses}")
         # return []

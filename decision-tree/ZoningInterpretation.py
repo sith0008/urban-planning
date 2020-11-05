@@ -42,9 +42,9 @@ def getZone(search_text):
         print(e)
 
     if land_use in zoneToZoneNo:
-        return str(zoneToZoneNo[land_use])
+        return land_use, str(zoneToZoneNo[land_use])
     else:
-        return str(0)
+        return "", str(0)
 
 
 

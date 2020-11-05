@@ -3,15 +3,18 @@
 from flask import Flask, request
 from DecisionTree import decision
 from ZoningInterpretation import getZone
-
+import logging
 app = Flask(__name__)
 
+logger = logging.getLogger(__name__)
 
 @app.route('/zone')
 def zone():
     _postal = request.args.get('postal') if request.args.get('postal') else 0
-    _zone = getZone(_postal)
-    return _zone
+    logger.info(f"Retrieving zone for postal code {_postal}")
+    _zone, _zone_num = getZone(_postal)
+    logger.info(f"Postal code {_postal} is in {_zone} with zone number {_zone_num}")
+    return _zone_num
 
 
 @app.route('/query')
