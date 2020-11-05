@@ -17,9 +17,9 @@ def landuse():
 @app.route('/query')
 def query():
     _business = request.args.get('business') if request.args.get('business') else 0
-    _property = request.args.get('property') if request.args.get('property') else 0
+    _zone = request.args.get('zone') if request.args.get('zone') else 0
     _unitzone = request.args.get('unit') if request.args.get('unit') else 0
-    return str(decision(_business, _property, _unitzone))
+    return str(decision(_business, _zone, _unitzone))
 
 
 if __name__ == "__main__":
