@@ -46,6 +46,7 @@ func (accessor *DBAccessorImpl) UpsertCase(c Case) (int64, error) {
 	if err != nil {
 		log.Println("[ERROR]: failed to insert case")
 		log.Println(err)
+		tx.Close()
 		return 0, err
 	}
 	var caseId int64
@@ -76,6 +77,7 @@ func (accessor *DBAccessorImpl) UpsertLocation(location Location) (int64, error)
 	if err != nil {
 		log.Println("[ERROR]: failed to insert location")
 		log.Println(err)
+		tx.Close()
 		return 0, err
 	}
 	var locationId int64
@@ -104,6 +106,7 @@ func (accessor *DBAccessorImpl) UpsertCaseLocRelation(caseId int64, locationId i
 	if err != nil {
 		log.Println("[ERROR]: failed to insert LOCATED_IN relation")
 		log.Println(err)
+		tx.Close()
 		return 0, err
 	}
 	var relationId int64
@@ -114,6 +117,7 @@ func (accessor *DBAccessorImpl) UpsertCaseLocRelation(caseId int64, locationId i
 	} else {
 		log.Println("[WARN] Cannot find match")
 		tx.Rollback()
+		tx.Close()
 		return 0, err
 	}
 	tx.Commit()
@@ -192,6 +196,7 @@ func (accessor *DBAccessorImpl) UpsertCaseUseClassRelation(caseId int64, specifc
 	if err != nil {
 		log.Println("[ERROR]: failed to insert HAS_USE_CLASS relation")
 		log.Println(err)
+		tx.Close()
 		return 0, err
 	}
 	var caseUseClassRelationId int64
@@ -219,6 +224,7 @@ func (accessor *DBAccessorImpl) UpsertLocationPropTypeRelation(locationId int64,
 	if err != nil {
 		log.Println("[ERROR]: failed to insert HAS_PROP_TYPE relation")
 		log.Println(err)
+		tx.Close()
 		return 0, err
 	}
 	var locationPropTypeRelationId int64
@@ -248,6 +254,7 @@ func (accessor *DBAccessorImpl) GetSimilarCases(query QueryRequest) ([]QueryResp
 	if err != nil {
 		log.Println("[ERROR]: failed to retrieve propType")
 		log.Println(err)
+		tx.Close()
 		return []QueryResponse{}, err
 	}
 	var specificPropType SpecificPropType
@@ -258,6 +265,7 @@ func (accessor *DBAccessorImpl) GetSimilarCases(query QueryRequest) ([]QueryResp
 	} else {
 		log.Printf("[ERROR] Location with postal code: %s, floor: %d, unit: %d does not exist", query.PostalCode, query.Floor, query.Unit)
 		err = errors.New("LocationError")
+		tx.Close()
 		return []QueryResponse{}, err
 	}
 
@@ -268,6 +276,7 @@ func (accessor *DBAccessorImpl) GetSimilarCases(query QueryRequest) ([]QueryResp
 	if err != nil {
 		log.Println("[ERROR]: failed to retrieve genericUseClass")
 		log.Println(err)
+		tx.Close()
 		return []QueryResponse{}, err
 	}
 	var genericUseClass GenericUseClass
@@ -296,6 +305,7 @@ func (accessor *DBAccessorImpl) GetSimilarCases(query QueryRequest) ([]QueryResp
 	if err != nil {
 		log.Println("[ERROR]: failed to retrieve similar cases")
 		log.Println(err)
+		tx.Close()
 		return []QueryResponse{}, err
 	}
 	for getSimilarCasesResult.Next() {
