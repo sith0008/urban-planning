@@ -37,14 +37,16 @@ classification_mapping = {
     1: "No Planning Permission Required",
     2: "Instant Approval",
     3: "Submit Change Of Use Application For Evaluation",
-    4: "Not Allowed"
+    4: "Unlikely",
+    5: "Not Allowed"
 }
 
 assessmentToAssessmentNo = {
     "No Planning Permission Required": 1,
     "Instant Approval": 2,
     "Submit Change Of Use Application For Evaluation": 3,
-    "Not Allowed": 4
+    "Unlikely": 4,
+    "Not Allowed": 5
 }
 
 zoneToZoneNo = {
