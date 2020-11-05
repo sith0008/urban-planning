@@ -54,6 +54,7 @@ func (accessor *DBAccessorImpl) UpsertCase(c Case) (int64, error) {
 		log.Printf("[INFO] Inserted case: %d", caseId)
 	}
 	tx.Commit()
+	tx.Close()
 	return caseId, nil
 }
 
@@ -83,6 +84,7 @@ func (accessor *DBAccessorImpl) UpsertLocation(location Location) (int64, error)
 		log.Printf("[INFO] Inserted location: %d", locationId)
 	}
 	tx.Commit()
+	tx.Close()
 	return locationId, nil
 }
 
@@ -115,6 +117,7 @@ func (accessor *DBAccessorImpl) UpsertCaseLocRelation(caseId int64, locationId i
 		return 0, err
 	}
 	tx.Commit()
+	tx.Close()
 	return relationId, nil
 }
 
@@ -134,6 +137,7 @@ func (accessor *DBAccessorImpl) RemoveCase(id int64) error {
 		fmt.Println(removeCaseResult.Record().GetByIndex(0).(string))
 	}
 	tx.Commit()
+	tx.Close()
 	return nil
 }
 func (accessor *DBAccessorImpl) RemoveLocation(id int64) error {
@@ -152,6 +156,7 @@ func (accessor *DBAccessorImpl) RemoveLocation(id int64) error {
 		fmt.Println(removeCaseResult.Record().GetByIndex(0).(string))
 	}
 	tx.Commit()
+	tx.Close()
 	return nil
 }
 
@@ -168,6 +173,7 @@ func (accessor *DBAccessorImpl) ClearDatabase() error {
 		return err
 	}
 	tx.Commit()
+	tx.Close()
 	return nil
 }
 
@@ -194,6 +200,7 @@ func (accessor *DBAccessorImpl) UpsertCaseUseClassRelation(caseId int64, specifc
 		log.Printf("[INFO] Inserted case-uc relation: %d", caseUseClassRelationId)
 	}
 	tx.Commit()
+	tx.Close()
 	return caseUseClassRelationId, nil
 }
 
@@ -220,6 +227,7 @@ func (accessor *DBAccessorImpl) UpsertLocationPropTypeRelation(locationId int64,
 		log.Printf("[INFO] Inserted location-pt relation: %d", locationPropTypeRelationId)
 	}
 	tx.Commit()
+	tx.Close()
 	return locationPropTypeRelationId, nil
 }
 
@@ -324,6 +332,7 @@ func (accessor *DBAccessorImpl) GetSimilarCases(query QueryRequest) ([]QueryResp
 		})
 	}
 	tx.Commit()
+	tx.Close()
 	return queryResponses, nil
 
 }
