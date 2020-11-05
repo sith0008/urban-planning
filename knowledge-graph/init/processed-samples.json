@@ -66,5 +66,22 @@
             "unit":1,
             "propertyType":"Commercial"
         }        
+    },
+    {
+        "case": {
+            "id":"ES20180102R0186",
+            "proposedUseClass": "Pet Shop",
+            "proposedUseDesc": "pet shop",
+            "gfa": 14,
+            "decision": "WP",
+            "evaluation": "no comments"
+        },
+        "location": {
+            "postalCode": "648886",
+            "lot":"TS-56",
+            "floor":1,
+            "unit":1,
+            "propertyType":"Commercial"
+        }        
     }
 ]
