@@ -199,7 +199,7 @@ class COUForm(FormAction):
             "postal": postal
         }
         # response is int from 1 - 32
-        response = requests.get(url, params=req).json()
+        response = requests.get(url, params=req).text
         return response
 
     def getSubmissionClassification(self, useClass, propType):
@@ -209,7 +209,7 @@ class COUForm(FormAction):
             "property": propType
         }
         # response is int from 1 - 4
-        response = requests.get(url, params=req).json()
+        response = requests.get(url, params=req).text
         return response
 
     def getSimilarCases(self, use_class, use_desc, gfa, postal, lotnum, floor, unit):
