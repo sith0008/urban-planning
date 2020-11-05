@@ -40,6 +40,13 @@ classification_mapping = {
     4: "Not Allowed"
 }
 
+assessmentToAssessmentNo = {
+    "No Planning Permission Required": 1,
+    "Instant Approval": 2,
+    "Submit Change Of Use Application For Evaluation": 3,
+    "Not Allowed": 4
+}
+
 zoneToZoneNo = {
         'RESIDENTIAL': 1,
         'RESIDENTIAL WITH COMMERCIAL AT 1ST STOREY': 2,
