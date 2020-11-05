@@ -38,11 +38,47 @@ from testing import test
 import requests
 
 classification_mapping = {
-    1:"No planning permission required",
-    2:"Instant approval",
-    3:"Submit change of use application for evaluation",
-    4:"The use is not within the planning intentions of the site"
+    1: "No Planning Permission Required",
+    2: "Instant Approval",
+    3: "Submit Change Of Use Application For Evaluation",
+    4: "Not Allowed"
 }
+
+business_mapping = {
+    'Restaurant': 1,
+    'Bar/Pub': 2,
+    'Restaurant and Bar': 3,
+    'Nightclub': 4,
+    'Shop': 5,
+    'Laundromat': 6,
+    'Office': 7,
+    'Massage Establishment': 8,
+    'Medical Clinic': 9,
+    'Pet Shop': 10,
+    'Pet Boarding': 11,
+    'Commercial School': 12,
+    'Childcare Centre': 13,
+    'Fitness Centre/Gymnasium': 14,
+    'Amusement Centre': 15,
+    'Residential': 16,
+    "Backpackers' Hostel": 17,
+    'Hotel': 18,
+    "Students' Hostel": 19,
+    'Serviced Apartment': 20,
+    "Workers' Dormitories": 21,
+    'Light Industrial Use': 22,
+    'General Industrial Use': 23,
+    'Industrial Training': 24,
+    'Warehouse': 25,
+    'Industrial Canteen': 26,
+    'Showroom': 27,
+    'E-business': 28,
+    'Core Media Activities': 29,
+    'Association/Community Club/Family Service Centre': 30,
+    'Religious Activities': 31,
+    'Limited & Non-Exclusive Religious Use': 32
+}
+
 # class HealthForm(FormAction):
 
 #     def name(self):
@@ -182,7 +218,7 @@ class COUForm(FormAction):
         unit = int(tracker.get_slot("unit"))
         
         propType = self.getPropertyType(postal)
-        subClassification = self.getSubmissionClassification(use_class, propType)
+        subClassification = self.getSubmissionClassification(business_mapping[use_class], propType)
         if subClassification == 1 or subClassification == 2 or subClassification == 4:
             return [SlotSet("classifcation", classification_mapping[subClassification])]
         else:
@@ -194,7 +230,7 @@ class COUForm(FormAction):
         # return []
 
     def getPropertyType(self, postal):
-        url = "http://localhost:5000/landuse"
+        url = "http://localhost:5000/zone"
         req = {
             "postal": postal
         }
@@ -206,7 +242,7 @@ class COUForm(FormAction):
         url = "http://localhost:5000/query"
         req = {
             "business": useClass,
-            "property": propType
+            "zone": propType
         }
         # response is int from 1 - 4
         response = requests.get(url, params=req).text
