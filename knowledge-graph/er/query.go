@@ -11,10 +11,10 @@ type QueryRequest struct {
 }
 
 type QueryResponse struct {
-	CaseSpec                 Case
-	LocationSpec             Location
-	ProposedSpecificUseClass SpecificUseClass
-	ProposedGenericUseClass  GenericUseClass
-	SpecificPropertyType     SpecificPropType
-	GenericPropertyType      GenericPropType
+	CaseSpec             Case
+	LocationSpec         Location
+	SpecificUseClass     SpecificUseClass
+	GenericUseClass      GenericUseClass
+	SpecificPropertyType SpecificPropType
+	GenericPropertyType  GenericPropType
 }

@@ -32,10 +32,12 @@ from typing import Any, Text, Dict, List, Union
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
+from rasa_sdk.events import SlotSet
 
 from testing import test
 
-from locationSpec import locationSpec
+import requests
+
 
 # class HealthForm(FormAction):
 
@@ -175,19 +177,32 @@ class COUForm(FormAction):
         floor = int(tracker.get_slot("floor"))
         unit = int(tracker.get_slot("unit"))
         
+        similarCases = self.getSimilarCases(use_class, use_desc, gfa, postal, lotnum, floor, unit)
+        responses = self.constructResponse(similarCases)
+        return [SlotSet("responses", responses if responses is not None else [])]
+
+        # dispatcher.utter_message(f"Found these cases to be similar to your application: {responses}")
+        # return []
 
 
-        # slot variables are currently in string format. 
-        testresponse = test()
-        dispatcher.utter_message(testresponse)
-        dispatcher.utter_message(" ")
-        
-        locSpec = locationSpec(use_class, use_desc, gfa, postal, lotnum, floor, unit)
 
-        # result_1, result_2 = query(use_class, use_desc, gfa, locSpec)
-        
-        # return whatever i want into the chatbot
-        
-        # dispatcher.utter_message("return whatever ")
+    def getSimilarCases(self, use_class, use_desc, gfa, postal, lotnum, floor, unit):
+        url = "http://localhost:8080/getSimilarCases"
+        req = {
+            "proposedUseClass":use_class,
+            "proposedUseDesc":use_desc,
+            "GFA": gfa,
+            "postalCode":postal,
+            "lotNumber": lotnum,
+            "floor":floor,
+            "unit":unit
+        }
+        response = requests.post(url, json=req).json()
+        return response
 
-        return []
+    def constructResponse(self, similarCases):
+        # TODO add case details
+        responses = []
+        for c in similarCases:
+            responses.append(c["CaseSpec"]["Id"])
+        return responses

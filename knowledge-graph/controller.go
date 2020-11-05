@@ -121,7 +121,13 @@ func (c *KnowledgeGraphComponent) GetSimilarCases(w http.ResponseWriter, r *http
 	}
 	queryResponses, err := c.Accessor.GetSimilarCases(query)
 	fmt.Println(queryResponses)
-	json.NewEncoder(w).Encode(&queryResponses)
+	// json.NewEncoder(w).Encode(&queryResponses)
+	response, err := json.Marshal(queryResponses)
+	if err != nil {
+		log.Println(err)
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(response)
 
 }
 

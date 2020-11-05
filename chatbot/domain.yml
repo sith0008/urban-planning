@@ -42,6 +42,8 @@ slots:
     type: unfeaturized
   unit:
     type: unfeaturized
+  responses:
+    type: unfeaturized
 
 
 
@@ -88,11 +90,11 @@ responses:
   - text: What will be the proposed use class?
     buttons:
     - title: "Use class 1"
-      payload: '/use_class {"use_class": "uc1"}'
+      payload: '/use_class {"use_class": "Restaurant"}'
     - title: "Use class 2"
-      payload: '/use_class {"use_class": "uc2"}'
+      payload: '/use_class {"use_class": "Massage Establishment"}'
     - title: "Use class 3"
-      payload: '/use_class {"use_class": "uc3"}'
+      payload: '/use_class {"use_class": "Childcare Centre"}'
 
   utter_ask_use_desc:
   - text: Ok, thanks. What is the proposed use description? 
@@ -119,6 +121,9 @@ responses:
             - Floor: {floor}\n
             - Unit: {unit}"
   
+  utter_api_response:
+  - text: "Found these cases to be similar to application: {responses}"
+  
   utter_no_worries:
   - text: No problem :)
   utter_ask_continue:
@@ -128,6 +133,7 @@ actions:
 - utter_goodbye
 - utter_greet
 - utter_slots_values
+- utter_api_response
 forms:
   cou_form: {}
 version: '2.0'

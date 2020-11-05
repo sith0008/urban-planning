@@ -317,10 +317,10 @@ func (accessor *DBAccessorImpl) GetSimilarCases(query QueryRequest) ([]QueryResp
 				Floor:      caseFloor,
 				Unit:       caseUnit,
 			},
-			SpecificPropertyType:     caseSP,
-			GenericPropertyType:      caseGP,
-			ProposedSpecificUseClass: caseSU,
-			ProposedGenericUseClass:  caseGU,
+			SpecificPropertyType: caseSP,
+			GenericPropertyType:  caseGP,
+			SpecificUseClass:     caseSU,
+			GenericUseClass:      caseGU,
 		})
 	}
 	tx.Commit()
