@@ -35,10 +35,14 @@ from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 
 from testing import test
-
 import requests
 
-
+classification_mapping = {
+    1:"No planning permission required",
+    2:"Instant approval",
+    3:"Submit change of use application for evaluation",
+    4:"The use is not within the planning intentions of the site"
+}
 # class HealthForm(FormAction):
 
 #     def name(self):
@@ -177,14 +181,36 @@ class COUForm(FormAction):
         floor = int(tracker.get_slot("floor"))
         unit = int(tracker.get_slot("unit"))
         
-        similarCases = self.getSimilarCases(use_class, use_desc, gfa, postal, lotnum, floor, unit)
-        responses = self.constructResponse(similarCases)
-        return [SlotSet("responses", responses if responses is not None else [])]
+        propType = self.getPropertyType(postal)
+        subClassification = self.getSubmissionClassification(use_class, propType)
+        if subClassification == 1 or subClassification == 2 or subClassification == 4:
+            return [SlotSet("classifcation", classification_mapping[subClassification])]
+        else:
+            similarCases = self.getSimilarCases(use_class, use_desc, gfa, postal, lotnum, floor, unit)
+            responses = self.constructResponse(similarCases)
+            return [SlotSet("classifcation", classification_mapping[subClassification]),SlotSet("responses", responses if responses is not None else [])]
 
         # dispatcher.utter_message(f"Found these cases to be similar to your application: {responses}")
         # return []
 
+    def getPropertyType(self, postal):
+        url = "http://localhost:5000/landuse"
+        req = {
+            "postal": postal
+        }
+        # response is int from 1 - 32
+        response = requests.get(url, params=req).json()
+        return response
 
+    def getSubmissionClassification(self, useClass, propType):
+        url = "http://localhost:5000/query"
+        req = {
+            "business": useClass,
+            "property": propType
+        }
+        # response is int from 1 - 4
+        response = requests.get(url, params=req).json()
+        return response
 
     def getSimilarCases(self, use_class, use_desc, gfa, postal, lotnum, floor, unit):
         url = "http://localhost:8080/getSimilarCases"
