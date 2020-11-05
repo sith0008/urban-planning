@@ -39,8 +39,7 @@ def decision(business, zone_no, unitzone):
     zone = zoneNoToZone[zone_no]
     if zone in zoneToBiz:
         property_type = property_df.index(zoneToBiz[zone])+1
-        # print(assessment_mapping[dtree.predict([[business, property_type, unitzone]])[0]])
-        return assessment_mapping[dtree.predict([[business, property_type, unitzone]])[0]]
+        return assessmentToAssessmentNo[assessment_mapping[dtree.predict([[business, property_type, unitzone]])[0]]]
     else:
         return 4
 
