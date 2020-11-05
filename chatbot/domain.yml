@@ -94,9 +94,23 @@ responses:
     - title: "Use class 1"
       payload: '/use_class {"use_class": "Restaurant"}'
     - title: "Use class 2"
-      payload: '/use_class {"use_class": "Massage Establishment"}'
+      payload: '/use_class {"use_class": "Bar/Pub"}'
     - title: "Use class 3"
-      payload: '/use_class {"use_class": "Childcare Centre"}'
+      payload: '/use_class {"use_class": "Restaurant and Bar"}'
+    - title: "Use class 4"
+      payload: '/use_class {"use_class": "Nightclub"}'
+    - title: "Use class 5"
+      payload: '/use_class {"use_class": "Shop"}'
+    - title: "Use class 6"
+      payload: '/use_class {"use_class": "Laundromat"}'
+    - title: "Use class 7"
+      payload: '/use_class {"use_class": "Office"}'
+    - title: "Use class 8"
+      payload: '/use_class {"use_class": "Massage Establishment"}'
+    - title: "Use class 9"
+      payload: '/use_class {"use_class": "Medical Clinic"}'
+    - title: "Use class 10"
+      payload: '/use_class {"use_class": "Pet Shop"}'
 
   utter_ask_use_desc:
   - text: Ok, thanks. What is the proposed use description? 
